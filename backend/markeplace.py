@@ -1,9 +1,9 @@
-from backend.historic import save_historic
-from backend.global_functions import salva_log_de_uso
+from backend.historic import save_in_database
+from backend.global_functions import save_log
 
 
 # TODO melhorar função produto e marketplace
-def set_marketplaces(marketplace: str, description: str):
+def set_marketplaces(marketplace: str, description: str) -> None:
     marketplace_register = f"'name': {marketplace} 'description': {description}"
-    save_historic(marketplace_register, 'logs/marketplaces.txt')
-    salva_log_de_uso(f'Salvo marketplace - {marketplace}')
+    save_in_database(marketplace_register, 'logs/marketplaces.txt')
+    save_log(f'Salvo marketplace - {marketplace}')

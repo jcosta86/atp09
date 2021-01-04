@@ -1,2 +1,5 @@
 'name': teste, 'description': teste, 'price': 100
 'name': teste, 'description': teste teste , 'price': 20
+'name': asdasdas, 'description': assadas, 'price': 10
+'name': asdfasdfasd, 'description': asdfasdfadsf, 'price': 100
+'name': asdfasd, 'description': asdfasdf, 'price': 12

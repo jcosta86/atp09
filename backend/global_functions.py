@@ -1,31 +1,36 @@
 from datetime import datetime
 
-from backend.historic import save_historic
+from backend.historic import save_in_database
 
 
-def salva_log_de_uso(nome_log: str) -> None:
-    data_e_hora_atual = datetime.now()
-    data_e_hora = data_e_hora_atual.strftime('%d/%m/%Y %H:%M:%S')
-    linha_de_log = f'log: {nome_log} - Data e hora: {data_e_hora}'
-    save_historic(linha_de_log, 'logs/historico_log.txt')
+def save_log(log_name: str) -> None:
+    """
+    Saves system logs
+    :param log_name:
+    :return: None
+    """
+    current_datetime = datetime.now()
+    current_formated_datetime = current_datetime.strftime('%d/%m/%Y %H:%M:%S')
+    log_line = f'log: {log_name} - Data e hora: {current_formated_datetime}'
+    save_in_database(log_line, 'logs/historico_log.txt')
 
 
 menu = [
-    {'nome': 'Marketplaces',
-     'rota': '/marketplaces'},
-    {'nome': 'Produtos',
-     'rota': '/produtos'},
-    {'nome': 'Log de uso',
-     'rota': '/historico'}
+    {'name': 'Marketplaces',
+     'route': '/marketplaces'},
+    {'name': 'Produtos',
+     'route': '/produtos'},
+    {'name': 'Log de uso',
+     'route': '/historico'}
 ]
 
 links = [
     {
-        'rota': '/',
-        'nome': 'Voltar'
+        'route': '/',
+        'name': 'Voltar'
     },
     {
-        'rota': 'http://www.olist.com',
-        'nome': 'olist'
+        'route': 'http://www.olist.com',
+        'name': 'olist'
     }
 ]
