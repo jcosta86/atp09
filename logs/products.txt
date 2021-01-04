@@ -1,0 +1,1 @@
+'name': teste, 'description': teste, 'price': 100

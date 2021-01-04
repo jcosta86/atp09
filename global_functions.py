@@ -18,3 +18,14 @@ menu = [
     {'nome': 'Log de uso',
      'rota': '/historico'}
 ]
+
+links = [
+    {
+        'rota': '/',
+        'nome': 'Voltar'
+    },
+    {
+        'rota': 'http://www.olist.com',
+        'nome': 'olist'
+    }
+]

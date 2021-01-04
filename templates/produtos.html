@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+{% block corpo %}
+    <h1>'Cadastro de Produtos'</h1>
+    <form action="/cadastroprodutos">
+        <label>
+            Produto :
+        </label>
+        <input name="produto" value="" type="text"/>
+        <label>
+            Descrição :
+        </label>
+        <input name="descricao" value="" type="text"/>
+        <label>
+            Preço :
+        </label>
+        <input name="preco" value="" type="number" step="0.01"/>
+        <!-- TODO mudar campo float-->
+        <input required type="submit" value="cadastrar"/>
+    </form>
+{% endblock %}

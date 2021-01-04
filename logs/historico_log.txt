@@ -1,0 +1,2 @@
+log: Salvo - Mercado Livre - Data e hora: 04/01/2021 17:01:18
+log: Salvo - teste - Data e hora: 04/01/2021 17:23:42
