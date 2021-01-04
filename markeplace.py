@@ -1,3 +1,8 @@
 from historic import save_historic
+from global_functions import salva_log_de_uso
 
-save_historic('magazine', 'logs/marketplaces.txt')
+
+def set_marketplaces(marketplace: str, description: str):
+    marketplace_register = f"'name': {marketplace} 'description': {description}"
+    save_historic(marketplace_register, 'logs/marketplaces.txt')
+    salva_log_de_uso(f'Salvo - {marketplace}')
