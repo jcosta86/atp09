@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 
-from global_functions import *
-from markeplace import set_marketplaces
-from product import set_product
+from backend.global_functions import *
+from backend.markeplace import set_marketplaces
+from backend.product import set_product
 
 app = Flask(__name__)
 nome = 'olist'

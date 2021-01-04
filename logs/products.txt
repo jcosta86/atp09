@@ -1,1 +1,2 @@
 'name': teste, 'description': teste, 'price': 100
+'name': teste, 'description': teste teste , 'price': 20

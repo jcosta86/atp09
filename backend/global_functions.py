@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from historic import save_historic
+from backend.historic import save_historic
 
 
 def salva_log_de_uso(nome_log: str) -> None:

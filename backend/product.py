@@ -1,5 +1,5 @@
-from historic import save_historic
-from global_functions import salva_log_de_uso
+from backend.historic import save_historic
+from backend.global_functions import salva_log_de_uso
 
 
 # TODO melhorar função produto e marketplace
