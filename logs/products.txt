@@ -3,3 +3,7 @@
 'name': asdasdas, 'description': assadas, 'price': 10
 'name': asdfasdfasd, 'description': asdfasdfadsf, 'price': 100
 'name': asdfasd, 'description': asdfasdf, 'price': 12
+'name': None, 'description': None, 'price': None
+'name': 001, 'description': 001, 'price': 10
+'name': None, 'description': None, 'price': None
+'name': 001, 'description': 001, 'price': 500

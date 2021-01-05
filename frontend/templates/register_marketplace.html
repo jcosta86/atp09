@@ -1,9 +1,0 @@
-{% extends 'template.html' %}
-{% block corpo %}
-    <h1>'Cadastrado com sucesso.'</h1>
-    {% for link in links %}
-        <ul>
-            <a href="{{ link['route'] }}">{{ link['name'] }}</a>
-        </ul>
-    {% endfor %}
-{% endblock %}

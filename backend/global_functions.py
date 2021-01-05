@@ -19,7 +19,7 @@ menu = [
     {'name': 'Marketplaces',
      'route': '/marketplaces'},
     {'name': 'Produtos',
-     'route': '/produtos'},
+     'route': '/products'},
     {'name': 'Log de uso',
      'route': '/historico'}
 ]

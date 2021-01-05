@@ -1,7 +1,7 @@
 {% extends 'template.html' %}
 {% block corpo %}
     <h1>'Cadastro de Produtos'</h1>
-    <form action="/cadastroprodutos">
+    <form action="/products">
         <label>
             Produto :
         </label>
@@ -17,4 +17,9 @@
         <!-- TODO mudar campo float-->
         <input required type="submit" value="cadastrar"/>
     </form>
+    {% for link in links %}
+        <ul>
+            <a href="{{ link['route'] }}">{{ link['name'] }}</a>
+        </ul>
+    {% endfor %}
 {% endblock %}

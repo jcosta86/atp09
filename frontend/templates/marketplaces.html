@@ -1,7 +1,7 @@
 {% extends 'template.html' %}
 {% block corpo %}
     <h1>'Cadastro de Marketplaces'</h1>
-    <form action="/cadastrarmarketplace">
+    <form action="/marketplaces">
         <label>
             Marketplace :
         </label>
@@ -12,4 +12,9 @@
         <input name="descricao" value="" type="text"/>
         <input required type="submit" value="cadastrar"/>
     </form>
+    {% for link in links %}
+        <ul>
+            <a href="{{ link['route'] }}">{{ link['name'] }}</a>
+        </ul>
+    {% endfor %}
 {% endblock %}

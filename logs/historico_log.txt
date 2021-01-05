@@ -8,3 +8,13 @@ log: Salvo marketplace - teste cadastro2 - Data e hora: 04/01/2021 17:54:40
 log: Salvo marketplace - ashuadsiuhfdhas - Data e hora: 04/01/2021 17:57:19
 log: Salvo produto - asdfasdfasd - Data e hora: 04/01/2021 17:58:36
 log: Salvo produto - asdfasd - Data e hora: 04/01/2021 17:59:01
+log: Salvo marketplace - None - Data e hora: 05/01/2021 09:12:24
+log: Salvo marketplace - None - Data e hora: 05/01/2021 09:13:42
+log: Salvo marketplace - 001 - Data e hora: 05/01/2021 09:13:47
+log: Salvo marketplace - 001 - Data e hora: 05/01/2021 09:15:46
+log: Salvo produto - None - Data e hora: 05/01/2021 09:18:06
+log: Salvo produto - 001 - Data e hora: 05/01/2021 09:18:46
+log: Salvo marketplace - None - Data e hora: 05/01/2021 09:19:50
+log: Salvo marketplace - asdas - Data e hora: 05/01/2021 09:19:54
+log: Salvo produto - None - Data e hora: 05/01/2021 09:22:26
+log: Salvo produto - 001 - Data e hora: 05/01/2021 09:22:31
