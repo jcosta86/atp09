@@ -1,9 +1,10 @@
-'name': teste, 'description': teste, 'price': 100
-'name': teste, 'description': teste teste , 'price': 20
-'name': asdasdas, 'description': assadas, 'price': 10
-'name': asdfasdfasd, 'description': asdfasdfadsf, 'price': 100
-'name': asdfasd, 'description': asdfasdf, 'price': 12
+'name': None, 'description': None 'price': None 
+'name': 456, 'description': 456 'price': 456 
 'name': None, 'description': None, 'price': None
-'name': 001, 'description': 001, 'price': 10
-'name': None, 'description': None, 'price': None
-'name': 001, 'description': 001, 'price': 500
+'name': xxx, 'description': xxx, 'price': 11
+'name: None, 'description': None, 'price': None
+'name: 456789, 'description': 456789, 'price': 456789456
+'name: None, 'description': None, 'price': None
+'name: asdfasdfasd, 'description': asdfasdfasd, 'price': 456
+'name: None, 'description': None, 'price': None
+'name: teste prod, 'description': teste prod, 'price': 100

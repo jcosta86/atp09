@@ -1,20 +1,25 @@
-log: Salvo - Mercado Livre - Data e hora: 04/01/2021 17:01:18
-log: Salvo - teste - Data e hora: 04/01/2021 17:23:42
-log: Salvo marketplace - testando - Data e hora: 04/01/2021 17:31:45
-log: Salvo produto - teste - Data e hora: 04/01/2021 17:31:55
-log: Salvo marketplace - teste cadastro - Data e hora: 04/01/2021 17:51:33
-log: Salvo produto - asdasdas - Data e hora: 04/01/2021 17:51:42
-log: Salvo marketplace - teste cadastro2 - Data e hora: 04/01/2021 17:54:40
-log: Salvo marketplace - ashuadsiuhfdhas - Data e hora: 04/01/2021 17:57:19
-log: Salvo produto - asdfasdfasd - Data e hora: 04/01/2021 17:58:36
-log: Salvo produto - asdfasd - Data e hora: 04/01/2021 17:59:01
-log: Salvo marketplace - None - Data e hora: 05/01/2021 09:12:24
-log: Salvo marketplace - None - Data e hora: 05/01/2021 09:13:42
-log: Salvo marketplace - 001 - Data e hora: 05/01/2021 09:13:47
-log: Salvo marketplace - 001 - Data e hora: 05/01/2021 09:15:46
-log: Salvo produto - None - Data e hora: 05/01/2021 09:18:06
-log: Salvo produto - 001 - Data e hora: 05/01/2021 09:18:46
-log: Salvo marketplace - None - Data e hora: 05/01/2021 09:19:50
-log: Salvo marketplace - asdas - Data e hora: 05/01/2021 09:19:54
-log: Salvo produto - None - Data e hora: 05/01/2021 09:22:26
-log: Salvo produto - 001 - Data e hora: 05/01/2021 09:22:31
+log: Salvo marketplace - None - Data e hora: 05/01/2021 09:47:31
+log: Salvo marketplace - 123 - Data e hora: 05/01/2021 09:47:36
+log: Salvo produto - None - Data e hora: 05/01/2021 09:47:39
+log: Salvo produto - 456 - Data e hora: 05/01/2021 09:47:46
+log: None - Data e hora: 05/01/2021 10:01:25
+log: 456789 - Data e hora: 05/01/2021 10:01:30
+log: Salvo marketplace - None - Data e hora: 05/01/2021 10:03:12
+log: Salvo marketplace - aaa - Data e hora: 05/01/2021 10:03:16
+log: Salvo marketplace - None - Data e hora: 05/01/2021 10:05:22
+log: Salvo marketplace - zzz - Data e hora: 05/01/2021 10:05:25
+log: Salvo produto - None - Data e hora: 05/01/2021 10:05:27
+log: Salvo produto - xxx - Data e hora: 05/01/2021 10:05:33
+log: Salvo produto - None - Data e hora: 05/01/2021 10:09:07
+log: Salvo produto - zxczxc - Data e hora: 05/01/2021 10:09:11
+log: Salvo produto - None - Data e hora: 05/01/2021 10:13:02
+log: Salvo produto - 456789 - Data e hora: 05/01/2021 10:13:08
+log: Salvo marketplace - None - Data e hora: 05/01/2021 10:13:35
+log: Salvo marketplace - asdas - Data e hora: 05/01/2021 10:13:38
+log: Salvo produto - None - Data e hora: 05/01/2021 10:13:40
+log: Salvo produto - asdfasdfasd - Data e hora: 05/01/2021 10:13:45
+log: Salvo marketplace - None - Data e hora: 05/01/2021 10:20:26
+log: Salvo marketplace - teste - Data e hora: 05/01/2021 10:20:31
+log: Salvo produto - None - Data e hora: 05/01/2021 10:20:32
+log: Salvo produto - teste prod - Data e hora: 05/01/2021 10:20:40
+log: Salvo marketplace - None - Data e hora: 05/01/2021 10:22:19
