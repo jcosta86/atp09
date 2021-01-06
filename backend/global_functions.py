@@ -29,13 +29,31 @@ def read_produtcs() -> list:
     return products
 
 
+def read_categories() -> list:
+    categories: list = []
+    archive = open('../logs/categories.txt', 'r')
+
+    for obj in archive:
+        line_cleaned = obj.strip()  # clear caracteres and clear white spaces (\n \t \r ' ')
+        data_line = line_cleaned.split('"')
+        formated_line = {data_line[1]: data_line[3], data_line[5]: data_line[7]}
+        categories.append(formated_line)
+
+    archive.close()
+    return categories
+
+
 menu = [
     {'name': 'Marketplaces',
      'route': '/marketplaces'},
     {'name': 'Produtos',
      'route': '/products'},
+    {'name': 'Categorias',
+     'route': '/categories'},
     {'name': 'Listar Produtos',
      'route': '/list-products'},
+    {'name': 'Listar Categorias',
+     'route': '/list-categories'},
     {'name': 'Log de uso',
      'route': '/historico'}
 ]

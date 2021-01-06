@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+{% block corpo %}
+
+    <h2 class="title_product">List Categories</h2>
+    <table style="width:100%">
+
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+
+        {% for obj in categories %}
+            <tr>
+                <td>{{ obj['name'] }}</td>
+                <td>{{ obj['description'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Go back</a>
+{% endblock %}

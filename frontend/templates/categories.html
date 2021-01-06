@@ -1,0 +1,20 @@
+{% extends 'template.html' %}
+{% block corpo %}
+    <h1>'Cadastro de Categorias'</h1>
+    <form action="/categories">
+        <label>
+            Categoria :
+        </label>
+        <input name="category" value="" type="text"/>
+        <label>
+            Descrição :
+        </label>
+        <input name="descricao" value="" type="text"/>
+        <input required type="submit" value="cadastrar"/>
+    </form>
+    {% for link in links %}
+        <ul>
+            <a href="{{ link['route'] }}">{{ link['name'] }}</a>
+        </ul>
+    {% endfor %}
+{% endblock %}
