@@ -1,0 +1,4 @@
+"name": "Magalu", "description": "comercio"
+"name": "Amazon", "description": "ffkjglkdflkg"
+"name": "Mercado Livre", "description": "dfkgldfgljlgjlkfgdfg"
+"name": "viavarejo", "description": "skjgkfjgkfkgjfgfg"
