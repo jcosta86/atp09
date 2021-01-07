@@ -42,16 +42,41 @@ def register_product():
     return render_template('products.html', name=name, links=links)
 
 
+@app.route('/categories')
+def register_category():
+    category_name = request.args.get('category')
+    description = request.args.get('descricao')
+    if (category_name is None) and (description is None):
+        pass
+    else:
+        line_in_register = f'"name": "{category_name}", "description": "{description}"'
+        save_in_database(line_in_register, '../logs/categories.txt')
+        save_log(f'Salvo category - {category_name}')
+    return render_template('categories.html', name=name, links=links)
+
+
 @app.route('/list-marketplaces')
 def list_marketplaces():
     marketplaces = read_marketplaces()
     return render_template('list-marketplaces.html', marketplaces=marketplaces)
-    pass
+
 
 @app.route('/list-products')
 def list_products():
     products = read_products()
     return render_template('list-products.html', products=products)
 
+
+@app.route('/list-categories')
+def list_categories():
+    categories = read_categories()
+    return render_template('list_categories.html', categories=categories)
+
+
+@app.route('/historico')
+def show_historico():
+    # lista = lista_historico()
+    # return render_template('historico.html', nome=nome, lista=lista, links=links)
+    pass
 
 app.run(debug=True)
