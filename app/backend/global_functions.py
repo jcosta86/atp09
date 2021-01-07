@@ -31,9 +31,6 @@ def read_marketplaces() -> list:
     return marketplaces
 
 
-read_marketplaces() 
-
-
 def read_products() -> list:
     products: list = []
     archive = open('logs/products.txt', 'r')
