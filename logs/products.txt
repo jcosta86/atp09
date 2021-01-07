@@ -1,3 +1,0 @@
-"name": "lucas", "description": "teste", "price": "333"
-"name": "None", "description": "None", "price": "None"
-"name": "None", "description": "None", "price": "None"
