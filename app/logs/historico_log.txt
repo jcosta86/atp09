@@ -61,3 +61,16 @@ log: Salvo produto - PS5 - Data e hora: 06/01/2021 16:54:40
 log: Salvo marketplace - viavarejo - Data e hora: 06/01/2021 17:31:59
 log: Salvo produto - teclado - Data e hora: 06/01/2021 17:32:14
 log: Salvo marketplace - LUCAS TESTE - Data e hora: 07/01/2021 11:08:27
+log: Salvo category - Games - Data e hora: 07/01/2021 12:34:00
+log: Salvo vendedor - None - Data e hora: 07/01/2021 12:49:58
+log: Salvo vendedor - None - Data e hora: 07/01/2021 12:50:46
+log: Salvo vendedor - None - Data e hora: 07/01/2021 12:50:57
+log: Salvo vendedor - None - Data e hora: 07/01/2021 12:53:45
+log: Salvo vendedor - None - Data e hora: 07/01/2021 12:55:33
+log: Salvo vendedor - None - Data e hora: 07/01/2021 12:57:55
+log: Salvo vendedor - None - Data e hora: 07/01/2021 13:02:53
+log: Salvo vendedor - Antonio - Data e hora: 07/01/2021 13:10:22
+log: Salvo marketplace - mercado livre - Data e hora: 07/01/2021 13:16:26
+log: Salvo produto - cama - Data e hora: 07/01/2021 13:18:03
+log: Salvo category - moveis - Data e hora: 07/01/2021 13:18:19
+log: Salvo vendedor - Lucas - Data e hora: 07/01/2021 13:18:36

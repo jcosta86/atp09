@@ -47,7 +47,7 @@ def read_products() -> list:
 
 def read_categories() -> list:
     categories: list = []
-    archive = open('../logs/categories.txt', 'r')
+    archive = open('logs/categories.txt', 'r')
 
     for obj in archive:
         line_cleaned = obj.strip()  # clear caracteres and clear white spaces (\n \t \r ' ')
@@ -58,6 +58,19 @@ def read_categories() -> list:
     archive.close()
     return categories
 
+def read_sellers() -> list:
+    sellers: list = []
+    archive = open('logs/sellers.txt', 'r')
+
+    for obj in archive:
+        line_cleaned = obj.strip()  # clear caracteres and clear white spaces (\n \t \r ' ')
+        data_line = line_cleaned.split('"')
+        formated_line = {data_line[1]: data_line[3], data_line[5]: data_line[7], data_line[9]: data_line[11]}
+        sellers.append(formated_line)
+
+    archive.close()
+    return sellers
+
 
 menu = [
     {'name': 'Marketplaces',
@@ -66,12 +79,16 @@ menu = [
      'route': '/products'},
     {'name': 'Categorias',
      'route': '/categories'},
+    {'name': 'Vendedores',
+     'route': '/sellers'},
      {'name': 'Listar Marketplace',
-     'route': '/list-marketplaces'},
+     'route': '/list_marketplaces'},
     {'name': 'Listar Produtos',
-     'route': '/list-products'},
+     'route': '/list_products'},
     {'name': 'Listar Categorias',
-     'route': '/list-categories'},
+     'route': '/list_categories'},
+    {'name': 'Listar Vendedores',
+     'route': '/list_sellers'},
     {'name': 'Log de uso',
      'route': '/historico'}
 ]

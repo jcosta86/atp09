@@ -1,20 +1,20 @@
 {% extends 'template.html' %}
 {% block corpo %}
 
-    <h2 class="title_product">List Products</h2>
+    <h2 class="title_product">List Sellers</h2>
     <table style="width:100%">
 
         <tr>
             <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
+            <th>E-mail</th>
+            <th>Phone number</th>
         </tr>
 
-        {% for obj in products%}
+        {% for obj in sellers%}
             <tr>
                 <td>{{ obj['name'] }}</td>
-                <td>{{ obj['description'] }}</td>
-                <td>{{ obj['price'] }}</td>
+                <td>{{ obj['email'] }}</td>
+                <td>{{ obj['phone_number'] }}</td>
             </tr>
         {% endfor %}
     </table>
