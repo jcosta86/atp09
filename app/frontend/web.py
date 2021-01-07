@@ -24,7 +24,7 @@ def register_marketplace():
     else:
         line_in_register = f'"name": "{marketplace_name}", "description": "{description}"'
         save_in_database(line_in_register, 'logs/marketplaces.txt')
-        save_log(f'Salvo marketplace - {marketplace_name}')
+        save_log(f'Inserted - marketplace - {marketplace_name}')
     return render_template('marketplaces.html', name=name, links=links)
 
 
@@ -38,7 +38,7 @@ def register_product():
     else:
         line_in_register = f'"name": "{product_name}", "description": "{description}", "price": "{price}"'
         save_in_database(line_in_register, 'logs/products.txt')
-        save_log(f'Salvo produto - {product_name}')
+        save_log(f'Inserted - product - {product_name}')
     return render_template('products.html', name=name, links=links)
 
 
@@ -51,7 +51,7 @@ def register_category():
     else:
         line_in_register = f'"name": "{category_name}", "description": "{description}"'
         save_in_database(line_in_register, 'logs/categories.txt')
-        save_log(f'Salvo category - {category_name}')
+        save_log(f'Inserted - category - {category_name}')
     return render_template('categories.html', name=name, links=links)
 
 @app.route('/sellers')
@@ -64,37 +64,41 @@ def register_seller():
     else:
         line_in_register = f'"name": "{full_name}", "email": "{email}", "phone_number": "{phone_number}"'
         save_in_database(line_in_register, 'logs/sellers.txt')
-        save_log(f'Salvo vendedor - {full_name}')
+        save_log(f'Inserted - seller - {full_name}')
     return render_template('sellers.html', name=name, links=links)
 
 
 @app.route('/list_marketplaces')
 def list_marketplaces():
     marketplaces = read_marketplaces()
+    save_log(f'List - marketplace')
     return render_template('list_marketplaces.html', marketplaces=marketplaces)
 
 
 @app.route('/list_products')
 def list_products():
     products = read_products()
+    save_log(f'List - product')
     return render_template('list_products.html', products=products)
 
 
 @app.route('/list_categories')
 def list_categories():
     categories = read_categories()
+    save_log(f'List - categories')
     return render_template('list_categories.html', categories=categories)
 
 @app.route('/list_sellers')
 def list_sellers():
     sellers = read_sellers()
+    save_log(f'List - sellers')
     return render_template('list_sellers.html', sellers=sellers)
 
 
-@app.route('/historico')
+@app.route('/logfile')
 def show_historico():
-    # lista = lista_historico()
-    # return render_template('historico.html', nome=nome, lista=lista, links=links)
-    pass
+    list_logfile = read_logfile()
+    return render_template('logfile.html', lista=list_logfile)
+    
 
 app.run(debug=True)

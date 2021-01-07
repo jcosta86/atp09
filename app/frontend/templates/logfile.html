@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+{% block corpo %}
+
+    <h2 class="title_product">Logs</h2>
+
+    <table style="width:100%">
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Where</th>
+        </tr>
+        {% for obj in lista %}
+            {% if "List" in obj['type'] %}
+                <tr class="cell_color">
+                    <td >{{ obj['date'] }}</td>
+                    <td>{{ obj['type'] }}</td>
+                    <td>{{ obj['where'] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td >{{ obj['date'] }}</td>
+                    <td>{{ obj['type'] }}</td>
+                    <td>{{ obj['where'] }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Go back</a>
+{% endblock %}
