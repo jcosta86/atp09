@@ -13,7 +13,7 @@ def save_log(log_name: str) -> None:
     """
     current_datetime = datetime.now()
     current_formated_datetime = current_datetime.strftime('%d/%m/%Y %H:%M:%S')
-    log_line = f'log: {log_name} - Data e hora: {current_formated_datetime}'
+    log_line = f'{current_formated_datetime} - {log_name}'
     save_in_database(log_line, 'logs/historico_log.txt')
 
 
@@ -72,6 +72,20 @@ def read_sellers() -> list:
     return sellers
 
 
+def read_logfile():
+    logs: list = []
+    archive = open('logs/historico_log.txt', 'r')
+
+    for obj in archive:
+        line_cleaned = obj.strip()  # clear caracteres and clear white spaces (\n \t \r ' ')
+        data_line = line_cleaned.split('-')
+        formated_line = {"date": data_line[0], "type": data_line[1], "where": data_line[2]}
+        logs.append(formated_line)
+    
+    archive.close()
+    return logs
+
+
 menu = [
     {'name': 'Marketplaces',
      'route': '/marketplaces'},
@@ -90,7 +104,7 @@ menu = [
     {'name': 'Listar Vendedores',
      'route': '/list_sellers'},
     {'name': 'Log de uso',
-     'route': '/historico'}
+     'route': '/logfile'}
 ]
 
 links = [
