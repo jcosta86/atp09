@@ -50,27 +50,45 @@ def register_category():
         pass
     else:
         line_in_register = f'"name": "{category_name}", "description": "{description}"'
-        save_in_database(line_in_register, '../logs/categories.txt')
+        save_in_database(line_in_register, 'logs/categories.txt')
         save_log(f'Salvo category - {category_name}')
     return render_template('categories.html', name=name, links=links)
 
+@app.route('/sellers')
+def register_seller():
+    full_name = request.args.get('name')
+    email = request.args.get('email')
+    phone_number = request.args.get('phone_number')
+    if (full_name is None) and (email is None) and (phone_number is None):
+        pass
+    else:
+        line_in_register = f'"name": "{full_name}", "email": "{email}", "phone_number": "{phone_number}"'
+        save_in_database(line_in_register, 'logs/sellers.txt')
+        save_log(f'Salvo vendedor - {full_name}')
+    return render_template('sellers.html', name=name, links=links)
 
-@app.route('/list-marketplaces')
+
+@app.route('/list_marketplaces')
 def list_marketplaces():
     marketplaces = read_marketplaces()
-    return render_template('list-marketplaces.html', marketplaces=marketplaces)
+    return render_template('list_marketplaces.html', marketplaces=marketplaces)
 
 
-@app.route('/list-products')
+@app.route('/list_products')
 def list_products():
     products = read_products()
-    return render_template('list-products.html', products=products)
+    return render_template('list_products.html', products=products)
 
 
-@app.route('/list-categories')
+@app.route('/list_categories')
 def list_categories():
     categories = read_categories()
     return render_template('list_categories.html', categories=categories)
+
+@app.route('/list_sellers')
+def list_sellers():
+    sellers = read_sellers()
+    return render_template('list_sellers.html', sellers=sellers)
 
 
 @app.route('/historico')
