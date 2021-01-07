@@ -85,7 +85,6 @@ def read_logfile():
     archive.close()
     return logs
 
-read_logfile()
 
 menu = [
     {'name': 'Marketplaces',
