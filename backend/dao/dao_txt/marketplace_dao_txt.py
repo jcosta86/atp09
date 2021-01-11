@@ -1,6 +1,7 @@
 from ...utils.utils import save_in_archive, read_archive
 
-def read()->list:
+
+def read() -> list:
     marketplaces = read_archive('logs/marketplaces.txt')
     return marketplaces
 
