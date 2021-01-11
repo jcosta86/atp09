@@ -2,6 +2,7 @@ from ..dao.dao_txt.marketplace_dao_txt import *
 from ..utils.utils import save_logfile
 from ..dao.marketplace_dao import insert_marketplace, select_marketplace
 
+
 def write_marketplace(name: str, description: str) -> None:
     #write(name, description) #Use txt function
     insert_marketplace(name, description) #Use Database
