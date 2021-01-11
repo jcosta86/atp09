@@ -1,3 +1,0 @@
-"name": "PS5", "description": "Videogame", "price": "4000"
-"name": "teclado", "description": "gamer", "price": "200"
-"name": "cama", "description": "sfgfdgdffdg", "price": "2000"

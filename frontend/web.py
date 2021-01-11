@@ -1,13 +1,47 @@
 import sys
-sys.path.append('../app')
+sys.path.append('.')
 
 from flask import Flask, render_template, request
-
-from backend.global_functions import *
-from backend.historic import *
+from backend.controllers.category import *
+from backend.controllers.marketplace import *
+from backend.controllers.product import *
+from backend.controllers.seller import *
+from backend.utils.utils import read_logfile
 
 app = Flask(__name__)
 name = 'olist'
+
+menu = [
+    {'name': 'Marketplaces',
+     'route': '/marketplaces'},
+    {'name': 'Produtos',
+     'route': '/products'},
+    {'name': 'Categorias',
+     'route': '/categories'},
+    {'name': 'Vendedores',
+     'route': '/sellers'},
+     {'name': 'Listar Marketplace',
+     'route': '/list_marketplaces'},
+    {'name': 'Listar Produtos',
+     'route': '/list_products'},
+    {'name': 'Listar Categorias',
+     'route': '/list_categories'},
+    {'name': 'Listar Vendedores',
+     'route': '/list_sellers'},
+    {'name': 'Log de uso',
+     'route': '/logfile'}
+]
+
+links = [
+    {
+        'route': '/',
+        'name': 'Voltar'
+    },
+    {
+        'route': 'http://www.olist.com',
+        'name': 'olist'
+    }
+]
 
 
 @app.route('/')
@@ -22,9 +56,7 @@ def register_marketplace():
     if (marketplace_name is None) and (description is None):
         pass
     else:
-        line_in_register = f'"name": "{marketplace_name}", "description": "{description}"'
-        save_in_database(line_in_register, 'logs/marketplaces.txt')
-        save_log(f'Inserted - marketplace - {marketplace_name}')
+        write_marketplace(marketplace_name, description)
     return render_template('marketplaces.html', name=name, links=links)
 
 
@@ -33,12 +65,11 @@ def register_product():
     product_name = request.args.get('produto')
     description = request.args.get('descricao')
     price = request.args.get('preco')
+
     if (product_name is None) and (description is None) and (price is None):
         pass
     else:
-        line_in_register = f'"name": "{product_name}", "description": "{description}", "price": "{price}"'
-        save_in_database(line_in_register, 'logs/products.txt')
-        save_log(f'Inserted - product - {product_name}')
+        write_product(product_name, description, price)
     return render_template('products.html', name=name, links=links)
 
 
@@ -49,54 +80,48 @@ def register_category():
     if (category_name is None) and (description is None):
         pass
     else:
-        line_in_register = f'"name": "{category_name}", "description": "{description}"'
-        save_in_database(line_in_register, 'logs/categories.txt')
-        save_log(f'Inserted - category - {category_name}')
+        write_category(category_name, description)
     return render_template('categories.html', name=name, links=links)
+
 
 @app.route('/sellers')
 def register_seller():
     full_name = request.args.get('name')
     email = request.args.get('email')
-    phone_number = request.args.get('phone_number')
-    if (full_name is None) and (email is None) and (phone_number is None):
+    phone = request.args.get('phone_number')
+    if (full_name is None) and (email is None) and (phone is None):
         pass
     else:
-        line_in_register = f'"name": "{full_name}", "email": "{email}", "phone_number": "{phone_number}"'
-        save_in_database(line_in_register, 'logs/sellers.txt')
-        save_log(f'Inserted - seller - {full_name}')
+        write_seller(full_name, email, phone)
     return render_template('sellers.html', name=name, links=links)
 
 
 @app.route('/list_marketplaces')
 def list_marketplaces():
-    marketplaces = read_marketplaces()
-    save_log(f'List - marketplace')
+    marketplaces = read_marketplace()
     return render_template('list_marketplaces.html', marketplaces=marketplaces)
 
 
 @app.route('/list_products')
 def list_products():
-    products = read_products()
-    save_log(f'List - product')
+    products = read_product()
     return render_template('list_products.html', products=products)
 
 
 @app.route('/list_categories')
 def list_categories():
     categories = read_categories()
-    save_log(f'List - categories')
     return render_template('list_categories.html', categories=categories)
+
 
 @app.route('/list_sellers')
 def list_sellers():
-    sellers = read_sellers()
-    save_log(f'List - sellers')
+    sellers = read_seller()
     return render_template('list_sellers.html', sellers=sellers)
 
 
 @app.route('/logfile')
-def show_historico():
+def list_historico():
     list_logfile = read_logfile()
     return render_template('logfile.html', lista=list_logfile)
     
