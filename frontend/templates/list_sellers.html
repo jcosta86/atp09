@@ -12,9 +12,9 @@
 
         {% for obj in sellers%}
             <tr>
-                <td>{{ obj['name'] }}</td>
-                <td>{{ obj['email'] }}</td>
-                <td>{{ obj['phone_number'] }}</td>
+                <td>{{ obj[0] }}</td>
+                <td>{{ obj[1] }}</td>
+                <td>{{ obj[2] }}</td>
             </tr>
         {% endfor %}
     </table>

@@ -1,4 +1,0 @@
-07/01/2021 13:49:44 - List - marketplace
-07/01/2021 13:50:08 - List - product
-07/01/2021 13:50:21 - Inserted - marketplace - LUCAS TESTE
-07/01/2021 14:29:27 - List - categories

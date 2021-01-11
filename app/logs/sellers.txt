@@ -1,2 +1,0 @@
-"name": "Antonio", "email": "sdfsfgfgdf", "phone_number": "546544562121"
-"name": "Lucas", "email": "fdgdfgdfgdfg", "phone_number": "1646454654"

@@ -1,18 +1,20 @@
 {% extends 'template.html' %}
 {% block corpo %}
 
-    <h2 class="title_product">List Marketplaces</h2>
+    <h2 class="title_product">List Products</h2>
     <table style="width:100%">
 
         <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Price</th>
         </tr>
 
-        {% for obj in marketplaces%}
+        {% for obj in products%}
             <tr>
-                <td>{{ obj['name'] }}</td>
-                <td>{{ obj['description'] }}</td>
+                <td>{{ obj[0] }}</td>
+                <td>{{ obj[1] }}</td>
+                <td>{{ obj[2] }}</td>
             </tr>
         {% endfor %}
     </table>

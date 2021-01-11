@@ -1,0 +1,27 @@
+11/01/2021 11:02:53 - Inserted - Category - vassouras
+11/01/2021 11:02:59 - List - Category
+11/01/2021 11:05:54 - List - Category
+11/01/2021 11:08:07 - List - Category
+11/01/2021 11:08:50 - List - Category
+11/01/2021 11:08:59 - List - Category
+11/01/2021 11:08:59 - List - Category
+11/01/2021 11:09:32 - List - Category
+11/01/2021 11:09:47 - List - Category
+11/01/2021 11:10:59 - List - Category
+11/01/2021 11:12:36 - List - Category
+11/01/2021 11:12:59 - List - Category
+11/01/2021 11:14:35 - List - Category
+11/01/2021 11:14:41 - Inserted - Marketplace - teste1
+11/01/2021 11:14:57 - Inserted - Marketplace - teste1
+11/01/2021 11:15:45 - List - Marketplace
+11/01/2021 11:16:28 - Inserted - Product - vassoura
+11/01/2021 11:16:31 - List - Product
+11/01/2021 11:16:40 - List - Category
+11/01/2021 11:16:46 - Inserted - Seller - Lucas Dionatan Torres
+11/01/2021 11:16:49 - List - Seller
+11/01/2021 11:18:07 - List - Marketplace
+11/01/2021 11:20:27 - List - Marketplace
+11/01/2021 11:20:31 - List - Marketplace
+11/01/2021 11:20:33 - List - Product
+11/01/2021 11:20:35 - List - Category
+11/01/2021 11:20:37 - List - Seller
