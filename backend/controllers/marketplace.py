@@ -1,16 +1,15 @@
-from ..dao.dao_txt.marketplace_dao_txt import *
+from ..dao.log_dao import insert_log
 from ..utils.utils import save_logfile
-from ..dao.marketplace_dao import insert_marketplace, select_marketplace
+from ..dao.marketplace_dao import *
 
 
 def write_marketplace(name: str, description: str) -> None:
-    #write(name, description) #Use txt function
-    insert_marketplace(name, description) #Use Database
-    save_logfile(f'Inserted - Marketplace - {name}')
+    write(name, description)
+    insert_log("Inserted", f"Marketplace - {name}")
+    #save_logfile(f'Inserted - Marketplace - {name}')
 
 
 def read_marketplace() -> list:
-    #marketplaces = read() #Use txt function
-    marketplaces = select_marketplace() #Use Database
-    save_logfile(f'List - Marketplace')
+    marketplaces = read()
+    insert_log('List', 'Marketplace')
     return marketplaces
