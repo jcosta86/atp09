@@ -1,7 +1,6 @@
 from flask import request, render_template, Blueprint
 
 from backend.controllers.category import read_categories, write_category
-from backend.models.category import Category
 
 category = Blueprint(__name__, 'category')
 

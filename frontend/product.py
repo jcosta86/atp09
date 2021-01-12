@@ -1,7 +1,6 @@
 from flask import request, render_template, Blueprint
 
 from backend.controllers.product import read_product, write_product
-from backend.models.product import Product
 
 product = Blueprint(__name__, 'product')
 
