@@ -1,4 +1,5 @@
 from backend.dao.database import execute_query, select_query
+from backend.models.marketplace import Marketplace
 
 
 def create_table_marketplace():
@@ -12,19 +13,20 @@ def create_table_marketplace():
     execute_query(query)
 
 
-def write(name: str, description: str) -> None:
+def write(marketplace: Marketplace) -> None:
     create_table_marketplace()
-    query = f"INSERT INTO marketplace (name, description) VALUES ('{name}', '{description}')"
+    query = f"INSERT INTO marketplace (name, description) VALUES ('{marketplace.name}', '{marketplace.description}')"
     execute_query(query)
 
 
 def read():
     create_table_marketplace()
-    list_products: list = []
+    list_marketplaces: list = []
     query = f"SELECT name, description FROM marketplace"
     products_tuple = select_query(query)
 
     for obj in products_tuple:
-        list_products.append([obj[0], obj[1]])
+        marketplace = Marketplace(obj[0], obj[1])
+        list_marketplaces.append(marketplace)
 
-    return list_products
+    return list_marketplaces

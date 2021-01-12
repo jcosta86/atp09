@@ -1,12 +1,13 @@
 from backend.dao.database import select_query, execute_query
+from backend.models.seller import Seller
 
 
 def create_table_seller():
     query = '''CREATE TABLE IF NOT EXISTS seller (
             id serial NOT NULL,
-            fullname varchar(45) NOT NULL,
-            phone int4 NOT NULL,
-            email varchar(45) NOT NULL,
+            fullname varchar NOT NULL,
+            phone varchar NOT NULL,
+            email varchar NOT NULL,
             CONSTRAINT seller_pk PRIMARY KEY (id)
             );
             '''
@@ -19,11 +20,12 @@ def read() -> list:
     query = "SELECT fullname, email, phone FROM seller"
     select = select_query(query)
     for seller in select:
-        list_sellers.append([seller[0], seller[1], seller[2]])
+        seller = Seller(seller[0], seller[1], seller[2])
+        list_sellers.append(seller)
     return list_sellers
 
 
-def write(fullname: str, email: str, phone: str) -> None:
+def write(seller: Seller) -> None:
     create_table_seller()
-    query = f"INSERT into seller(fullname, email, phone) VALUES('{fullname}','{email}','{phone}')"
+    query = f"INSERT into seller(fullname, email, phone) VALUES('{seller.fullname}','{seller.email}','{seller.phone}')"
     execute_query(query)

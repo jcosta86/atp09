@@ -1,4 +1,5 @@
 from backend.dao.database import select_query, execute_query
+from backend.models.log import Log
 
 
 def create_table_logfile():
@@ -14,9 +15,9 @@ def create_table_logfile():
     execute_query(query)
 
 
-def insert_log(activity: str, domain_activity: str) -> None:
+def insert_log(log: Log) -> None:
     create_table_logfile()
-    query = f"INSERT INTO logfile (activity, domain_activity) VALUES ('{activity}', '{domain_activity}')"
+    query = f"INSERT INTO logfile (activity, domain_activity) VALUES ('{log.activity}', '{log.domain_activity}')"
     execute_query(query)
 
 
@@ -27,5 +28,10 @@ def select_log():
     logs_tuple = select_query(query)
 
     for obj in logs_tuple:
-        list_logs.append([obj[0].strftime('%d/%m/%Y') + ' ' + obj[1].strftime('%H:%M:%S'), obj[2], obj[3]])
+        log = Log(date_activity=obj[0].strftime('%d/%m/%Y'),
+                  time_activity=obj[1].strftime('%H:%M:%S'),
+                  activity=obj[2],
+                  domain_activity=obj[3])
+        list_logs.append(log)
+    print(list_logs)
     return list_logs
