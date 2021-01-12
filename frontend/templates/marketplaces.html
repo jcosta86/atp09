@@ -12,9 +12,4 @@
         <input name="descricao" value="" type="text"/>
         <input required type="submit" value="cadastrar"/>
     </form>
-    {% for link in links %}
-        <ul>
-            <a href="{{ link['route'] }}">{{ link['name'] }}</a>
-        </ul>
-    {% endfor %}
 {% endblock %}

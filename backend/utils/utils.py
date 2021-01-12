@@ -20,7 +20,6 @@ def read_archive(path: str) -> list:
     return list_objs
 
 
-# Save log in archive
 def save_logfile(log_name: str) -> None:
     """
     Saves system logs

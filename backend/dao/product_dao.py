@@ -1,4 +1,4 @@
-from .database import execute_query, select_query
+from backend.dao.database import execute_query, select_query
 
 
 def create_table_product():
@@ -13,7 +13,7 @@ def create_table_product():
     execute_query(query)
 
 
-def write(name: str, description: str, price: float)-> None:
+def write(name: str, description: str, price: float) -> None:
     create_table_product()
     query = f"INSERT INTO product (name, description, price) VALUES ('{name}', '{description}', '{price}')"
     execute_query(query)
@@ -26,6 +26,6 @@ def read():
     products_tuple = select_query(query)
 
     for obj in products_tuple:
-        list_products.append([obj[0],obj[1],obj[2]])
+        list_products.append([obj[0], obj[1], obj[2]])
 
     return list_products
