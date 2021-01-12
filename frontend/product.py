@@ -11,12 +11,11 @@ def register_product():
     product_name = request.args.get('produto')
     description = request.args.get('descricao')
     price = request.args.get('preco')
-    product = Product(product_name, description, price)
 
     if (product_name is None) and (description is None) and (price is None):
         pass
     else:
-        write_product(product)
+        write_product(product_name, description, price)
     return render_template('products.html', name='olist')
 
 

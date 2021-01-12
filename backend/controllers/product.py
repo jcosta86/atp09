@@ -3,9 +3,10 @@ from backend.dao.product_dao import write, read
 from backend.models.product import Product
 
 
-def write_product(product: Product) -> None:
+def write_product(name: str, description, price: float) -> None:
+    product = Product(name, description, price)
     write(product)
-    insert_log('Inserted', f'Product - {product.name}')
+    insert_log('Inserted', f'Product - {name}')
 
 
 def read_product() -> list:

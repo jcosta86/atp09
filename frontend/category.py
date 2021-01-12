@@ -10,11 +10,10 @@ category = Blueprint(__name__, 'category')
 def register_category():
     category_name = request.args.get('category')
     description = request.args.get('descricao')
-    category = Category(category_name, description)
     if (category_name is None) and (description is None):
         pass
     else:
-        write_category(category)
+        write_category(category_name, description)
     return render_template('categories.html', name='olist')
 
 
