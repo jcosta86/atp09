@@ -10,11 +10,11 @@
             <th>Phone number</th>
         </tr>
 
-        {% for obj in sellers%}
+        {% for seller in sellers%}
             <tr>
-                <td>{{ obj[0] }}</td>
-                <td>{{ obj[1] }}</td>
-                <td>{{ obj[2] }}</td>
+                <td>{{ seller.fullname }}</td>
+                <td>{{ seller.email }}</td>
+                <td>{{ seller.phone }}</td>
             </tr>
         {% endfor %}
     </table>
