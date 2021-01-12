@@ -15,12 +15,11 @@ def create_table_category():
 def read() -> list:
     list_categories = []
     create_table_category()
-    query = 'SELECT id, name, description FROM category'
+    query = 'SELECT name, description, id FROM category'
     select = select_query(query)
     for item in select:
-        category = Category(item[1], item[2], item[0])
+        category = Category(item[0], item[1], item[2])
         list_categories.append(category)
-        print(category.name)
     return list_categories
 
 
