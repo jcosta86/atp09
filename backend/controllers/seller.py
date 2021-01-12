@@ -11,6 +11,6 @@ def write_seller(fullname: str, email: str, phone: str) -> None:
 
 def read_seller() -> list:
     sellers = read()
-    insert_log("Inserted", "Seller")
+    insert_log("List", "Seller")
     #save_logfile(f'List - Seller')
     return sellers

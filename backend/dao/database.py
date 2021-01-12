@@ -6,18 +6,17 @@ password = 'olist123'
 database = 'topskills10'
 
 
-def insert_query(query: str):
+def execute_query(query: str) -> None: #Function for use with insert and create query
     connection_string = f"host={host} user={user} dbname={database} password={password}"
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
     cursor.execute(query)
-    print("Query executada")
     connection.commit()
     cursor.close()
     connection.close()
 
 
-def select_query(query: str):
+def select_query(query: str) -> list: #Function for return values (Use with select)
     connection_string = f"host={host} user={user} dbname={database} password={password}"
     connection = psycopg2.connect(connection_string)
     cursor = connection.cursor()
