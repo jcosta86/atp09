@@ -9,20 +9,16 @@
             <th>Type</th>
             <th>Where</th>
         </tr>
-        {% for obj in lista %}
-            {% if "List" in obj %}
+        {% for log in lista %}
+            {% if "List" in log.activity %}
                 <tr class="cell_color">
-                    <td >{{ obj[0] }}</td>
-                    <td>{{ obj[1] }}</td>
-                    <td>{{ obj[2] }}</td>
-                </tr>
                 {% else %}
                 <tr>
-                    <td >{{ obj[0] }}</td>
-                    <td>{{ obj[1] }}</td>
-                    <td>{{ obj[2] }}</td>
-                </tr>
             {% endif %}
+                    <td >{{ log.date_activity }} {{ log.time_activity }}</td>
+                    <td>{{ log.activity }}</td>
+                    <td>{{ log.domain_activity }}</td>
+                </tr>
         {% endfor %}
     </table>
 
