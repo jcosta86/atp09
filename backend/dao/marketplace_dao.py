@@ -1,4 +1,5 @@
-from .database import execute_query, select_query
+from backend.dao.database import execute_query, select_query
+
 
 def create_table_marketplace():
     query = '''CREATE TABLE IF NOT EXISTS marketplace (
@@ -11,7 +12,7 @@ def create_table_marketplace():
     execute_query(query)
 
 
-def write(name: str, description: str)-> None:
+def write(name: str, description: str) -> None:
     create_table_marketplace()
     query = f"INSERT INTO marketplace (name, description) VALUES ('{name}', '{description}')"
     execute_query(query)
@@ -24,6 +25,6 @@ def read():
     products_tuple = select_query(query)
 
     for obj in products_tuple:
-        list_products.append([obj[0],obj[1]])
+        list_products.append([obj[0], obj[1]])
 
     return list_products

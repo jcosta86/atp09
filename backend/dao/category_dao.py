@@ -18,7 +18,7 @@ def read() -> list:
     query = 'SELECT name, description FROM category'
     select = select_query(query)
     for category in select:
-        list_categories.append([category[0],category[1]])
+        list_categories.append([category[0], category[1]])
     return list_categories
 
 
