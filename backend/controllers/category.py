@@ -1,9 +1,12 @@
 from backend.controllers.log import create_log
 from backend.dao.category_dao import read, write
 
+from backend.models.category import Category
+
 
 def write_category(name: str, description: str) -> None:
-    write(name, description)
+    category = Category(name, description)
+    write(category)
     create_log("Inserted", f"Category - {name}")
 
 

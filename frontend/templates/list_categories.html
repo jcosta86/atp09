@@ -5,14 +5,16 @@
     <table style="width:100%">
 
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
         </tr>
   
-        {% for obj in categories %}
+        {% for category in categories %}
             <tr>
-                <td>{{ obj[0] }}</td>
-                <td>{{ obj[1] }}</td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>{{ category.description }}</td>
             </tr>
         {% endfor %}
     </table>
