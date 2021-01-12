@@ -5,16 +5,18 @@
     <table style="width:100%">
 
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
         </tr>
 
-        {% for obj in products%}
+        {% for product in products%}
             <tr>
-                <td>{{ obj[0] }}</td>
-                <td>{{ obj[1] }}</td>
-                <td>{{ obj[2] }}</td>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
             </tr>
         {% endfor %}
     </table>
