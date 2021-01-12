@@ -1,7 +1,19 @@
-from backend.dao.database import select_query, insert_query
+from backend.dao.database import select_query, execute_query
+
+def create_table_seller():
+    query = '''CREATE TABLE IF NOT EXISTS seller (
+            id serial NOT NULL,
+            fullname varchar(45) NOT NULL,
+            phone int4 NOT NULL,
+            email varchar(45) NOT NULL,
+            CONSTRAINT seller_pk PRIMARY KEY (id)
+            );
+            '''
+    execute_query(query)
 
 
 def read() -> list:
+    create_table_seller()
     list_sellers = []
     query = "SELECT fullname, email, phone FROM seller"
     select = select_query(query)
@@ -11,5 +23,6 @@ def read() -> list:
 
 
 def write(fullname: str, email: str, phone: str) -> None:
+    create_table_seller()
     query = f"INSERT into seller(fullname, email, phone) VALUES('{fullname}','{email}','{phone}')"
-    insert_query(query)
+    execute_query(query)

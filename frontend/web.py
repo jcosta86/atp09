@@ -1,4 +1,5 @@
 import sys
+sys.path.append('.')
 
 from backend.controllers.log import read_log
 from flask import Flask, render_template, request
@@ -7,7 +8,7 @@ from backend.controllers.marketplace import *
 from backend.controllers.product import *
 from backend.controllers.seller import *
 
-sys.path.append('.')
+
 
 
 app = Flask(__name__)
