@@ -1,12 +1,14 @@
 import sys
-sys.path.append('.')
 
+from backend.controllers.log import read_log
 from flask import Flask, render_template, request
 from backend.controllers.category import *
 from backend.controllers.marketplace import *
 from backend.controllers.product import *
 from backend.controllers.seller import *
-from backend.utils.utils import read_logfile
+
+sys.path.append('.')
+
 
 app = Flask(__name__)
 name = 'olist'
@@ -20,7 +22,7 @@ menu = [
      'route': '/categories'},
     {'name': 'Vendedores',
      'route': '/sellers'},
-     {'name': 'Listar Marketplace',
+    {'name': 'Listar Marketplace',
      'route': '/list_marketplaces'},
     {'name': 'Listar Produtos',
      'route': '/list_products'},
@@ -122,8 +124,8 @@ def list_sellers():
 
 @app.route('/logfile')
 def list_historico():
-    list_logfile = read_logfile()
+    list_logfile = read_log()
     return render_template('logfile.html', lista=list_logfile)
-    
 
-app.run(debug=True)
+
+app.run(port=5010, debug=True)

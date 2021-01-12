@@ -1,12 +1,13 @@
-from ..dao.dao_txt.product_dao_txt import *
 from ..utils.utils import save_logfile
+from ..dao.product_dao import *
+
 
 def write_product(name: str, description: str, price: float) -> None:
     write(name, description, price)
-    save_logfile(f'Inserted - Product - {name}')
+    save_logfile('Inserted',  f'Product - {name}')
 
 
 def read_product() -> list:
     products = read()
-    save_logfile(f'List - Product')
+    save_logfile('List', 'Product')
     return products

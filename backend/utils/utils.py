@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def save_in_archive(new_line: str, path_file: str) -> None:
     file = open(path_file, 'a')
     file.write(f'{new_line}\n')
@@ -19,7 +20,7 @@ def read_archive(path: str) -> list:
     return list_objs
 
 
-#Save log in archive
+# Save log in archive
 def save_logfile(log_name: str) -> None:
     """
     Saves system logs
@@ -41,6 +42,6 @@ def read_logfile():
         data_line = line_cleaned.split('-')
         formated_line = {"date": data_line[0], "type": data_line[1], "where": data_line[2]}
         logs.append(formated_line)
-    
+
     archive.close()
     return logs
