@@ -9,10 +9,10 @@
             <th>Description</th>
         </tr>
 
-        {% for obj in marketplaces%}
+        {% for marketplace in marketplaces%}
             <tr>
-                <td>{{ obj[0] }}</td>
-                <td>{{ obj[1] }}</td>
+                <td>{{ marketplace.name }}</td>
+                <td>{{ marketplace.description }}</td>
             </tr>
         {% endfor %}
     </table>
