@@ -1,6 +1,6 @@
 from flask import request, render_template, Blueprint
 
-from backend.controllers.marketplace import read_marketplace, write_marketplace
+from backend.controllers.marketplace_controller import read_marketplace, write_marketplace
 
 marketplace = Blueprint(__name__, 'marketplace')
 
