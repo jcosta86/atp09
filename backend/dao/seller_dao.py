@@ -15,17 +15,28 @@ def create_table_seller():
 
 
 def read() -> list:
-    create_table_seller()
     list_sellers = []
-    query = "SELECT fullname, email, phone FROM seller"
+    query = "SELECT id, fullname, email, phone FROM seller"
     select = select_query(query)
     for seller in select:
-        seller = Seller(seller[0], seller[1], seller[2])
+        seller = Seller(id=seller[0], fullname=seller[1], email=seller[2], phone=seller[3])
         list_sellers.append(seller)
     return list_sellers
 
 
 def write(seller: Seller) -> None:
-    create_table_seller()
     query = f"INSERT into seller(fullname, email, phone) VALUES('{seller.fullname}','{seller.email}','{seller.phone}')"
+    execute_query(query)
+
+
+def update(seller: Seller):
+    query = f"""
+            UPDATE seller SET fullname = '{seller.fullname}', email = '{seller.email}', phone = '{seller.phone}'
+            WHERE id = {seller.id}
+            """
+    execute_query(query)
+
+
+def delete(id: int):
+    query = f"DELETE FROM seller WHERE id = {id}"
     execute_query(query)
