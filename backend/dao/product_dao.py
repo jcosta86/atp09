@@ -25,7 +25,17 @@ def read():
     select = select_query(query)
 
     for item in select:
-        product = Product(item[0], item[1], item[2], item[3])
+        product = Product(item[0], item[1], float(item[2].strip('$').replace(',','')), item[3])
         list_products.append(product)
 
     return list_products
+
+
+def update(product: Product) -> None:
+    query = f"UPDATE product SET name = '{product.name}', description = '{product.description}', price = '{product.price}' WHERE id = '{product.id}'"
+    execute_query(query)
+
+
+def delete(id: int) -> None:
+    query = f"DELETE FROM product WHERE id = '{id}'"
+    execute_query(query)

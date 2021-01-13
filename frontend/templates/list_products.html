@@ -5,18 +5,28 @@
     <table style="width:100%">
 
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
 
         {% for product in products%}
             <tr>
-                <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
+                <td>
+                    <a href="/products/update?id={{ product.id }}&product={{product.name}}&description={{product.description}}&price={{product.price}}">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a href="/products/delete?id={{product.id}}">
+                        Delete
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </table>

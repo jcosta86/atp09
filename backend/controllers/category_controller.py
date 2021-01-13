@@ -1,5 +1,5 @@
 from backend.controllers.log_controller import write_log
-from backend.dao.category_dao import read, write
+from backend.dao.category_dao import read, write, update, delete
 
 from backend.models.category_model import Category
 
@@ -14,3 +14,14 @@ def read_categories() -> list:
     categories = read()
     write_log("List", "Category")
     return categories
+
+
+def update_category(name: str, description: str, id: int) -> None:
+    category = Category(name, description, id)
+    update(category)
+    write_log("Updated", f"Category - ID: {id}")
+
+
+def delete_category(id:int) -> None:
+    delete(id)
+    write_log("Deleted", f"Category - ID: {id}")
