@@ -2,7 +2,7 @@
 {% block corpo %}
 {% if edit %}
     <h1>'Editar Produto'</h1>
-    <form action="/products/edit" method='POST'>
+    <form action="/products/update" method='POST'>
         <input name="id" value="{{ id }}" hidden/>
         <label>
             Produto :

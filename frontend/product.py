@@ -25,7 +25,7 @@ def list_products():
     return render_template('list_products.html', products=products)
 
 
-@product.route('/products/edit')
+@product.route('/products/update')
 def edit_product():
     product_id = request.args.get('id')
     product_name = request.args.get('product')
@@ -34,7 +34,7 @@ def edit_product():
     return render_template('products.html', nome='olist', edit=True, id=product_id, name=product_name, description=description, price=product_price)
 
 
-@product.route('/products/edit', methods=['POST'])
+@product.route('/products/update', methods=['POST'])
 def save_product_update():
     product_id = request.form.get('id')
     product_name = request.form.get('product')

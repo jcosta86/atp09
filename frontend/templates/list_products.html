@@ -18,19 +18,14 @@
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
                 <td>
-                    <form action="/products/edit">
-                        <input name="id" value="{{ product.id }}" hidden/>
-                        <input name="product" value="{{ product.name }}" hidden />
-                        <input name="description" value="{{ product.description }}" hidden />
-                        <input name="price" value="{{ product.price }}" hidden />
-                        <input required type="submit" value="edit"/>
-                    </form>
+                    <a href="/products/update?id={{ product.id }}&product={{product.name}}&description={{product.description}}&price={{product.price}}">
+                        Edit
+                    </a>
                 </td>
                 <td>
-                    <form action="/products/delete">
-                        <input name="id" value="{{ product.id }}" type="text" hidden/>
-                        <input required type="submit" value="delete"/>
-                    </form>
+                    <a href="/products/delete?id={{product.id}}">
+                        Delete
+                    </a>
                 </td>
             </tr>
         {% endfor %}
