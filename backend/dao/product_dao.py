@@ -15,13 +15,11 @@ def create_table_product():
 
 
 def write(product: Product) -> None:
-    create_table_product()
     query = f"INSERT INTO product (name, description, price) VALUES ('{product.name}', '{product.description}', '{product.price}')"
     execute_query(query)
 
 
 def read():
-    create_table_product()
     list_products: list = []
     query = f"SELECT name, description, price, id FROM product"
     select = select_query(query)

@@ -16,15 +16,13 @@ def create_table_logfile():
 
 
 def insert_log(log: Log) -> None:
-    create_table_logfile()
-    query = f"INSERT INTO logfile (activity, domain_activity) VALUES ('{log.activity}', '{log.domain_activity}')"
+    query = f"INSERT INTO logfile (activity, domain_activity) VALUES ('{log.activity}', '{log.domain_activity}');"
     execute_query(query)
 
 
 def select_log():
-    create_table_logfile()
     list_logs: list = []
-    query = f"SELECT date_activity, time_activity, activity, domain_activity FROM logfile"
+    query = f"SELECT date_activity, time_activity, activity, domain_activity FROM logfile;"
     logs_tuple = select_query(query)
 
     for obj in logs_tuple:
