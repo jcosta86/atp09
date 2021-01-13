@@ -11,16 +11,16 @@ CONNECTION_STRING = f"host={HOST} user={USER} dbname={DATABASE} password={PASSWO
 
 def execute_query(query: str) -> None:
     with psycopg2.connect(CONNECTION_STRING) as connection:
-        cursor = connection.cursor()
-        cursor.execute(query)
-        connection.commit()
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            connection.commit()
 
 
 def select_query(query: str) -> list:
     with psycopg2.connect(CONNECTION_STRING) as connection:
-        cursor = connection.cursor()
-        cursor.execute(query)
-        result = cursor.fetchall()
-        connection.commit()
+        with connection.cursor() as cursor:
+            cursor.execute(query)
+            result = cursor.fetchall()
+            connection.commit()
 
     return result
