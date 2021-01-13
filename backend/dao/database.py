@@ -1,5 +1,6 @@
-import psycopg2
 import os
+
+import psycopg2
 
 HOST = os.getenv('DB_HOST')
 USER = os.getenv('DB_USER')
