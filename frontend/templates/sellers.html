@@ -1,19 +1,39 @@
 {% extends 'template.html' %}
 {% block corpo %}
-    <h1>'Cadastro de Vendedores'</h1>
-    <form action="/sellers">
-        <label>
-            Nome completo :
-        </label>
-        <input name="name" value="" type="text"/>
-        <label>
-            E-mail :
-        </label>
-        <input name="email" value="" type="text"/>
-        <label>
-            Telefone :
-        </label>
-        <input name="phone_number" value="" type="number"/>
-        <input required type="submit" value="cadastrar"/>
-    </form>
+{% if edit %}
+<h1>'Edição de Vendedores'</h1>
+<form action="/sellers/update" method="post">
+    <label>
+        Nome completo :
+    </label>
+    <input name="name" value="{{ fullname }}" type="text"/>
+    <label>
+        E-mail :
+    </label>
+    <input name="email" value="{{ email }}" type="text"/>
+    <label>
+        Telefone :
+    </label>
+    <input name="phone_number" value="{{ phone }}" type="number"/>
+    <input name="id" value="{{ id }}" type="hidden"/>
+    <input required type="submit" value="cadastrar"/>
+</form>
+{% else %}
+<h1>'Cadastro de Vendedores'</h1>
+<form action="/sellers">
+    <label>
+        Nome completo :
+    </label>
+    <input name="name" value="" type="text"/>
+    <label>
+        E-mail :
+    </label>
+    <input name="email" value="" type="text"/>
+    <label>
+        Telefone :
+    </label>
+    <input name="phone_number" value="" type="number"/>
+    <input required type="submit" value="cadastrar"/>
+</form>
+{% endif %}
 {% endblock %}

@@ -1,24 +1,36 @@
 {% extends 'template.html' %}
 {% block corpo %}
 
-    <h2 class="title_product">List Marketplaces</h2>
-    <table style="width:100%">
+<h2 class="title_product">List Marketplaces</h2>
+<table style="width:100%">
 
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
 
-        {% for marketplace in marketplaces%}
-            <tr>
-                <td>{{ marketplace.name }}</td>
-                <td>{{ marketplace.description }}</td>
-            </tr>
-        {% endfor %}
-    </table>
+    {% for mkt in marketplaces%}
+    <tr>
+        <td>{{ mkt.name }}</td>
+        <td>{{ mkt.description }}</td>
+        <td>
+            <a href="/marketplaces/update?id={{ mkt.id }}&marketplace={{mkt.name}}&descricao={{mkt.description}}">
+                Edit
+            </a>
+        </td>
+        <td>
+            <a href="/marketplaces/delete?id={{ mkt.id }}">
+                Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
 
-    <br>
-    <a href="/">Go back</a>
+<br>
+<a href="/">Go back</a>
 {% endblock %}
 {% block footer %}
 {% endblock footer %}

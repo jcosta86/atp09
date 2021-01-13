@@ -1,6 +1,7 @@
 from backend.dao.database import select_query, execute_query
 from backend.models.category_model import Category
 
+
 def create_table_category():
     query = '''CREATE TABLE IF NOT EXISTS category(
                 id serial not null,
@@ -14,7 +15,6 @@ def create_table_category():
 
 def read() -> list:
     list_categories = []
-    create_table_category()
     query = 'SELECT name, description, id FROM category'
     select = select_query(query)
     for item in select:
@@ -24,6 +24,5 @@ def read() -> list:
 
 
 def write(category: Category) -> None:
-    create_table_category()
     query = f"INSERT into category(name, description) VALUES ('{category.name}','{category.description}')"
     execute_query(query)

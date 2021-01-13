@@ -7,8 +7,8 @@ def create_table_logfile():
                 id serial NOT NULL,
                 date_activity date NULL DEFAULT 'now'::text::date,
                 time_activity time NULL DEFAULT 'now'::text::time with time zone,
-                activity varchar(20) NOT NULL,
-                domain_activity varchar(20) NOT NULL,
+                activity varchar(500) NOT NULL,
+                domain_activity varchar(500) NOT NULL,
                 CONSTRAINT logfile_pk PRIMARY KEY (id)
             );
             '''
@@ -16,15 +16,13 @@ def create_table_logfile():
 
 
 def insert_log(log: Log) -> None:
-    create_table_logfile()
-    query = f"INSERT INTO logfile (activity, domain_activity) VALUES ('{log.activity}', '{log.domain_activity}')"
+    query = f"INSERT INTO logfile (activity, domain_activity) VALUES ('{log.activity}', '{log.domain_activity}');"
     execute_query(query)
 
 
 def select_log():
-    create_table_logfile()
     list_logs: list = []
-    query = f"SELECT date_activity, time_activity, activity, domain_activity FROM logfile"
+    query = f"SELECT date_activity, time_activity, activity, domain_activity FROM logfile;"
     logs_tuple = select_query(query)
 
     for obj in logs_tuple:

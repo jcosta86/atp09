@@ -14,19 +14,30 @@ def create_table_marketplace():
 
 
 def write(marketplace: Marketplace) -> None:
-    create_table_marketplace()
-    query = f"INSERT INTO marketplace (name, description) VALUES ('{marketplace.name}', '{marketplace.description}')"
+    query = f"INSERT INTO marketplace (name, description) VALUES ('{marketplace.name}', '{marketplace.description}');"
     execute_query(query)
 
 
 def read():
-    create_table_marketplace()
     list_marketplaces: list = []
-    query = f"SELECT name, description FROM marketplace"
+    query = f"SELECT id, name, description FROM marketplace;"
     products_tuple = select_query(query)
 
     for obj in products_tuple:
-        marketplace = Marketplace(obj[0], obj[1])
+        marketplace = Marketplace(name=obj[1], description=obj[2], id=obj[0])
         list_marketplaces.append(marketplace)
 
     return list_marketplaces
+
+
+def update(marketplace: Marketplace):
+    query = f"""
+            UPDATE marketplace SET name = '{marketplace.name}', description = '{marketplace.description}' 
+            WHERE id = {marketplace.id};
+            """
+    execute_query(query)
+
+
+def delete(id: int):
+    query = f"DELETE FROM marketplace WHERE id = {id};"
+    execute_query(query)
