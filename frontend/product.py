@@ -38,8 +38,8 @@ def edit_product():
 def save_product_update():
     product_id = request.form.get('id')
     product_name = request.form.get('product')
-    description = request.form.get('descricao')
-    product_price = request.form.get('preco')
+    description = request.form.get('description')
+    product_price = request.form.get('price')
     update_product(product_name, description, product_price, product_id,)
     return redirect('/list_products')
 

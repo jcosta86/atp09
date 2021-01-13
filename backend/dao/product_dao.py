@@ -27,7 +27,7 @@ def read():
     select = select_query(query)
 
     for item in select:
-        product = Product(item[0], item[1], item[2], item[3])
+        product = Product(item[0], item[1], float(item[2].strip('$').replace(',','')), item[3])
         list_products.append(product)
 
     return list_products
