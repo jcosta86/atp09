@@ -5,18 +5,33 @@
     <table style="width:100%">
 
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
 
         {% for product in products%}
             <tr>
-                <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
+                <td>
+                    <form action="/products/edit">
+                        <input name="id" value="{{ product.id }}" hidden/>
+                        <input name="product" value="{{ product.name }}" type="text" hidden />
+                        <input name="description" value="{{ product.description }}" type="text" hidden />
+                        <input name="price" value="{{ product.price }}" type="number" step="0.01" hidden />
+                        <input required type="submit" value="edit"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="/products/delete">
+                        <input name="id" value="{{ product.id }}" type="text" hidden/>
+                        <input required type="submit" value="delete"/>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>

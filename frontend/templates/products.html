@@ -1,20 +1,40 @@
 {% extends 'template.html' %}
 {% block corpo %}
-    <h1>'Cadastro de Produtos'</h1>
-    <form action="/products">
+{% if edit %}
+    <h1>'Editar Produto'</h1>
+    <form action="/products/edit" method='POST'>
+        <input name="id" value="{{ id }}" hidden/>
         <label>
             Produto :
         </label>
-        <input name="produto" value="" type="text"/>
+        <input name="product" value="{{ name  }}" type="text"/>
         <label>
             Descrição :
         </label>
-        <input name="descricao" value="" type="text"/>
+        <input name="description" value="{{ description }}" type="text"/>
         <label>
             Preço :
         </label>
-        <input name="preco" value="" type="number" step="0.01"/>
-        <!-- TODO mudar campo float-->
+        <input name="price" value="{{ price }}" type="number" step="0.01"/>
         <input required type="submit" value="cadastrar"/>
     </form>
+{% else %}
+<h1>'Cadastro de Produtos'</h1>
+<form action="/products">
+    <label>
+        Produto :
+    </label>
+    <input name="product" value="" type="text"/>
+    <label>
+        Descrição :
+    </label>
+    <input name="description" value="" type="text"/>
+    <label>
+        Preço :
+    </label>
+    <input name="price" value="" type="number" step="0.01"/>
+    <input required type="submit" value="cadastrar"/>
+</form>
+
+{% endif %}
 {% endblock %}

@@ -39,6 +39,7 @@ def save_category_update():
     update_category(category_name, description, category_id)
     return redirect('/list_categories')
 
+
 @category.route('/categories/delete')
 def del_category():
     category_id = request.args.get('id')
