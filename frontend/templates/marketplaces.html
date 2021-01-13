@@ -1,15 +1,31 @@
 {% extends 'template.html' %}
 {% block corpo %}
-    <h1>'Cadastro de Marketplaces'</h1>
-    <form action="/marketplaces">
-        <label>
-            Marketplace :
-        </label>
-        <input name="marketplace" value="" type="text"/>
-        <label>
-            Descrição :
-        </label>
-        <input name="descricao" value="" type="text"/>
-        <input required type="submit" value="cadastrar"/>
-    </form>
+{% if edit %}
+<h1>'Edição de Marketplaces'</h1>
+<form action="/marketplaces/update" method="post">
+    <label>
+        Marketplace :
+    </label>
+    <input name="marketplace" value="{{ marketplace_name }}" type="text"/>
+    <label>
+        Descrição :
+    </label>
+    <input name="descricao" value="{{ description }}" type="text"/>
+    <input type="hidden" value="{{ id }}" name="id">
+    <input required type="submit" value="cadastrar"/>
+</form>
+{% else %}
+<h1>'Cadastro de Marketplaces'</h1>
+<form action="/marketplaces">
+    <label>
+        Marketplace :
+    </label>
+    <input name="marketplace" value="" type="text"/>
+    <label>
+        Descrição :
+    </label>
+    <input name="descricao" value="" type="text"/>
+    <input required type="submit" value="cadastrar"/>
+</form>
+{% endif %}
 {% endblock %}
