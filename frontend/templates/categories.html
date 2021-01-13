@@ -1,5 +1,20 @@
 {% extends 'template.html' %}
 {% block corpo %}
+{% if edit %}
+    <h1>'Editar Categoria'</h1>
+    <form action="/categories/edit" method='POST'>
+        <input name="id" value="{{id}}" type="text" hidden /> 
+        <label>
+            Categoria :
+        </label>
+        <input name="category" value="{{name}}" type="text"/>
+        <label>
+            Descrição :
+        </label>
+        <input name="descricao" value="{{description}}" type="text"/>
+        <input required type="submit" value="salvar"/>
+    </form>
+{% else %}
     <h1>'Cadastro de Categorias'</h1>
     <form action="/categories">
         <label>
@@ -12,4 +27,6 @@
         <input name="descricao" value="" type="text"/>
         <input required type="submit" value="cadastrar"/>
     </form>
+{% endif %}
+
 {% endblock %}

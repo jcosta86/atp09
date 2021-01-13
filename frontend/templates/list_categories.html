@@ -5,16 +5,30 @@
     <table style="width:100%">
 
         <tr>
-            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
   
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td>{{ category.description }}</td>
+                <td>
+                    <form action= "/categories/edit">
+                        <input name="id" value="{{category.id}}" type="text" hidden />
+                        <input name="category" value="{{ category.name }}" type="text" hidden />
+                        <input name="descricao" value="{{ category.description }}" type="text" hidden />
+                        <input required type="submit" value="edit" />
+                    </form>
+                </td>
+                <td>
+                    <form action="/categories/delete">
+                        <input name="id" value="{{ category.id }}" hidden/>
+                        <input required type="submit" value="delete" />
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>
