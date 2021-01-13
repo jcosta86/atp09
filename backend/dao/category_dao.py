@@ -27,3 +27,13 @@ def write(category: Category) -> None:
     create_table_category()
     query = f"INSERT into category(name, description) VALUES ('{category.name}','{category.description}')"
     execute_query(query)
+
+
+def update(category: Category) -> None:
+    query = f"UPDATE category SET name = '{category.name}', description = '{category.description}' WHERE id = '{category.id}'"
+    execute_query(query)
+
+
+def delete(id: int) -> None:
+    query = f"DELETE FROM category WHERE id = '{id}'"
+    execute_query(query)
