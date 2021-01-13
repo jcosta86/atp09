@@ -7,8 +7,8 @@ def create_table_logfile():
                 id serial NOT NULL,
                 date_activity date NULL DEFAULT 'now'::text::date,
                 time_activity time NULL DEFAULT 'now'::text::time with time zone,
-                activity varchar(20) NOT NULL,
-                domain_activity varchar(20) NOT NULL,
+                activity varchar(500) NOT NULL,
+                domain_activity varchar(500) NOT NULL,
                 CONSTRAINT logfile_pk PRIMARY KEY (id)
             );
             '''
