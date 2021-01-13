@@ -1,5 +1,5 @@
 from backend.dao.database import execute_query, select_query
-from backend.models.marketplace import Marketplace
+from backend.models.marketplace_model import Marketplace
 
 
 def create_table_marketplace():

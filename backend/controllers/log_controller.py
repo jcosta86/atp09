@@ -1,8 +1,8 @@
 from backend.dao.log_dao import select_log, insert_log
-from backend.models.log import Log
+from backend.models.log_model import Log
 
 
-def create_log(activity, domain_activity):
+def write_log(activity, domain_activity):
     log = Log(activity, domain_activity)
     insert_log(log)
 

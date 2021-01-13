@@ -1,5 +1,5 @@
 from backend.dao.database import execute_query, select_query
-from backend.models.product import Product
+from backend.models.product_model import Product
 
 
 def create_table_product():

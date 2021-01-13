@@ -1,6 +1,6 @@
 from flask import render_template, Blueprint
 
-from backend.controllers.log import read_log
+from backend.controllers.log_controller import read_log
 
 log = Blueprint(__name__, 'log')
 
