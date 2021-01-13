@@ -1,5 +1,5 @@
 from backend.dao.database import select_query, execute_query
-from backend.models.seller import Seller
+from backend.models.seller_model import Seller
 
 
 def create_table_seller():

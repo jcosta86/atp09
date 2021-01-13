@@ -1,5 +1,5 @@
 from backend.dao.database import select_query, execute_query
-from backend.models.log import Log
+from backend.models.log_model import Log
 
 
 def create_table_logfile():
@@ -33,5 +33,4 @@ def select_log():
                   activity=obj[2],
                   domain_activity=obj[3])
         list_logs.append(log)
-    print(list_logs)
     return list_logs

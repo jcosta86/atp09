@@ -1,5 +1,5 @@
 from backend.dao.database import select_query, execute_query
-from backend.models.category import Category
+from backend.models.category_model import Category
 
 def create_table_category():
     query = '''CREATE TABLE IF NOT EXISTS category(
