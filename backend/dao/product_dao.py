@@ -31,3 +31,13 @@ def read():
         list_products.append(product)
 
     return list_products
+
+
+def update(product: Product) -> None:
+    query = f"UPDATE product SET name = '{product.name}', description = '{product.description}', price = '{product.price}' WHERE id = '{product.id}'"
+    execute_query(query)
+
+
+def delete(id: int) -> None:
+    query = f"DELETE FROM product WHERE id = '{id}'"
+    execute_query(query)

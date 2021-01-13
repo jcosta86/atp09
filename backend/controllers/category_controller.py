@@ -19,8 +19,9 @@ def read_categories() -> list:
 def update_category(name: str, description: str, id: int) -> None:
     category = Category(name, description, id)
     update(category)
-    write_log("Updated", "Category")
+    write_log("Updated", f"Category - ID: {id}")
 
 
 def delete_category(id:int) -> None:
     delete(id)
+    write_log("Deleted", f"Category - ID: {id}")
