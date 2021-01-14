@@ -1,4 +1,5 @@
-from backend.dao.database import select_query, execute_query
+from backend.dao.base_dao import BaseDao
+from backend.dao.database import execute_query
 from backend.models.category_model import Category
 
 
@@ -13,26 +14,6 @@ def create_table_category():
     execute_query(query)
 
 
-def read() -> list:
-    list_categories = []
-    query = 'SELECT name, description, id FROM category'
-    select = select_query(query)
-    for item in select:
-        category = Category(item[0], item[1], item[2])
-        list_categories.append(category)
-    return list_categories
-
-
-def write(category: Category) -> None:
-    query = f"INSERT into category(name, description) VALUES ('{category.name}','{category.description}')"
-    execute_query(query)
-
-
-def update(category: Category) -> None:
-    query = f"UPDATE category SET name = '{category.name}', description = '{category.description}' WHERE id = '{category.id}'"
-    execute_query(query)
-
-
-def delete(id: int) -> None:
-    query = f"DELETE FROM category WHERE id = '{id}'"
-    execute_query(query)
+class CategoryDao(BaseDao):
+    def __init__(self):
+        super().__init__(Category)
