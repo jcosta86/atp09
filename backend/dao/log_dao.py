@@ -1,3 +1,4 @@
+from backend.dao.base_dao import BaseDao
 from backend.dao.database import select_query, execute_query
 from backend.models.log_model import Log
 
@@ -5,14 +6,19 @@ from backend.models.log_model import Log
 def create_table_logfile():
     query = ''' CREATE TABLE IF NOT EXISTS logfile (
                 id serial NOT NULL,
-                date_activity date NULL DEFAULT 'now'::text::date,
-                time_activity time NULL DEFAULT 'now'::text::time with time zone,
+                date_activity date NOT NULL,
+                time_activity time NOT NULL,
                 activity varchar(500) NOT NULL,
                 domain_activity varchar(500) NOT NULL,
                 CONSTRAINT logfile_pk PRIMARY KEY (id)
             );
             '''
     execute_query(query)
+
+
+class LogDao(BaseDao):
+    def __init__(self):
+        super().__init__(Log)
 
 
 def insert_log(log: Log) -> None:
@@ -32,3 +38,7 @@ def select_log():
                   domain_activity=obj[3])
         list_logs.append(log)
     return list_logs
+
+
+dao = LogDao()
+print(dao.read()[0].date_activity)
