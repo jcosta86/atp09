@@ -11,13 +11,13 @@
         </tr>
         {% for log in lista %}
             {% if "List" in log.activity %}
-                <tr style="background-color: yellow;">
+                <tr class="listed">
             {% elif "Update" in log.activity %}
-                <tr style="background-color: blue;">
+                <tr class="updated">
             {% elif "Delete" in log.activity %}
-                <tr style="background-color: red;">
+                <tr class="deleted">
             {% else %}
-                <tr>
+                <tr class="created">
             {% endif %}
                     <td >{{ log.date_activity }} {{ log.time_activity }}</td>
                     <td>{{ log.activity }}</td>

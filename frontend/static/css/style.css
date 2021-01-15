@@ -16,6 +16,22 @@ footer{
     text-align: center;
 }
 
+tr.listed td {
+    background-color: yellow;
+}
+
+tr.deleted td {
+    background-color: #fd7b1d;
+}
+
+tr.updated td {
+    background-color: #00a6ff;
+}
+
+tr.created td {
+    background-color: #62ff00 !important;
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
