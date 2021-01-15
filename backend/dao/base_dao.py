@@ -63,6 +63,14 @@ class BaseDao:
                          not key.startswith('__') and 'id' not in key]
         return separator.join(db_attributes)
 
+    def _get_primary_key(self) -> str:
+        pk_name_query = f"""
+                        SELECT column_name FROM information_schema.key_column_usage 
+                        WHERE table_name = '{self.table_name}'
+                        """
+        pk_name = self.select_one_query(pk_name_query)[0]
+        return pk_name
+
     def read(self) -> list:
         list_items = []
         query = f'SELECT * FROM {self.table_name}'
@@ -73,11 +81,7 @@ class BaseDao:
         return list_items
 
     def read_by_id(self, id: int) -> BaseModel:
-        pk_name_query = f"""
-                        SELECT column_name FROM information_schema.key_column_usage 
-                        WHERE table_name = '{self.table_name}'
-                        """
-        pk_name = self.select_one_query(pk_name_query)[0]
+        pk_name = self._get_primary_key()
         query = f"SELECT * FROM {self.table_name} WHERE {pk_name} = '{id}'"
         result = self.select_one_query(query)
         item_instance = self.model(**result)
@@ -98,10 +102,12 @@ class BaseDao:
         self.execute_query(query)
 
     def update(self, instance: BaseModel) -> None:
+        pk_name = self._get_primary_key()
         query = f"UPDATE {self.table_name} SET {self._generate_update_set_string(instance)} " \
-                f"WHERE id = '{instance.id}'"
+                f"WHERE {pk_name} = '{instance.id}'"
         self.execute_query(query)
 
     def delete(self, id: int) -> None:
-        query = f"DELETE FROM {self.table_name} WHERE id = '{id}'"
+        pk_name = self._get_primary_key()
+        query = f"DELETE FROM {self.table_name} WHERE {pk_name} = '{id}'"
         self.execute_query(query)
