@@ -1,5 +1,10 @@
-from backend.dao.database import execute_query, select_query
+from backend.dao.base_dao import BaseDao
 from backend.models.product_model import Product
+
+
+class ProductDao(BaseDao):
+    def __init__(self):
+        super().__init__(Product)
 
 
 def create_table_product():
@@ -11,31 +16,4 @@ def create_table_product():
             CONSTRAINT product_pk PRIMARY KEY (id)
             );
             '''
-    execute_query(query)
-
-
-def write(product: Product) -> None:
-    query = f"INSERT INTO product (name, description, price) VALUES ('{product.name}', '{product.description}', '{product.price}')"
-    execute_query(query)
-
-
-def read():
-    list_products: list = []
-    query = f"SELECT name, description, price, id FROM product"
-    select = select_query(query)
-
-    for item in select:
-        product = Product(item[0], item[1], float(item[2].strip('$').replace(',','')), item[3])
-        list_products.append(product)
-
-    return list_products
-
-
-def update(product: Product) -> None:
-    query = f"UPDATE product SET name = '{product.name}', description = '{product.description}', price = '{product.price}' WHERE id = '{product.id}'"
-    execute_query(query)
-
-
-def delete(id: int) -> None:
-    query = f"DELETE FROM product WHERE id = '{id}'"
-    execute_query(query)
+    ProductDao.execute_query(query)

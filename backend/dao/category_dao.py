@@ -1,6 +1,10 @@
 from backend.dao.base_dao import BaseDao
-from backend.dao.database import execute_query
 from backend.models.category_model import Category
+
+
+class CategoryDao(BaseDao):
+    def __init__(self):
+        super().__init__(Category)
 
 
 def create_table_category():
@@ -11,9 +15,4 @@ def create_table_category():
                 constraint category_pk primary key (id)
             );
             '''
-    execute_query(query)
-
-
-class CategoryDao(BaseDao):
-    def __init__(self):
-        super().__init__(Category)
+    CategoryDao.execute_query(query)
