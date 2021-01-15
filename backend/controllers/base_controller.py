@@ -23,11 +23,9 @@ class BaseController:
         self.log.write(Log("List", f"{self.domain_name}"))
         return list_all
 
-
     def update(self,model: BaseModel) -> None:
         self.log.write(Log("Updated", f"{self.domain_name} - {model.id}"))
         self.dao.update(model)
-
 
     def delete(self,id: int) -> None:
         self.log.write(Log("Deleted", f"{self.domain_name} - {id}"))
