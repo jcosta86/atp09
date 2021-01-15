@@ -73,7 +73,18 @@ class BaseDao:
         return list_items
 
     def read_by_id(self, id: int) -> BaseModel:
-        query = f"SELECT * FROM {self.table_name} WHERE id = '{id}'"
+        pk_name_query = f"""
+                        SELECT column_name FROM information_schema.key_column_usage 
+                        WHERE table_name = '{self.table_name}'
+                        """
+        pk_name = self.select_one_query(pk_name_query)[0]
+        query = f"SELECT * FROM {self.table_name} WHERE {pk_name} = '{id}'"
+        result = self.select_one_query(query)
+        item_instance = self.model(**result)
+        return item_instance
+
+    def read_by(self, column_name: str, value: any) -> BaseModel:
+        query = f"SELECT * FROM {self.table_name} WHERE {column_name} = '{value}'"
         result = self.select_one_query(query)
         item_instance = self.model(**result)
         return item_instance
