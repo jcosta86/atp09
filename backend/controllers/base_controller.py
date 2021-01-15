@@ -14,6 +14,9 @@ class BaseController:
         self.dao.write(model)
         self.log.write(Log("Inserted", f"{self.domain_name}"))
 
+    def read_by_id(self, id: int) -> BaseModel:
+        model = self.dao.read_by_id(id)
+        return model
 
     def read(self) -> list:
         list_all = self.dao.read()
