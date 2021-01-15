@@ -16,9 +16,9 @@
             <tr>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
+                <td>R${{ "%.2f"|format(product.price) }}</td>
                 <td>
-                    <a href="/products/update?id={{ product.id }}&product={{product.name}}&description={{product.description}}&price={{product.price}}">
+                    <a href="/products/update?id={{ product.id }}&product={{product.name}}&description={{product.description}}&price={{"%.2f"|format(product.price)}}">
                         Edit
                     </a>
                 </td>
