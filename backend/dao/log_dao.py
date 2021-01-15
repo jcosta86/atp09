@@ -1,4 +1,5 @@
 from backend.dao.base_dao import BaseDao
+from backend.models.base_model import BaseModel
 from backend.models.log_model import Log
 
 
@@ -17,3 +18,6 @@ class LogDao(BaseDao):
                 );
                 '''
         self.execute_query(query)
+
+    def update(self, instance: BaseModel) -> None:
+        raise NotImplementedError
