@@ -6,16 +6,16 @@
     <label>
         Nome completo :
     </label>
-    <input name="name" value="{{ fullname }}" type="text"/>
+    <input name="name" value="{{ seller.fullname }}" type="text"/>
     <label>
         E-mail :
     </label>
-    <input name="email" value="{{ email }}" type="text"/>
+    <input name="email" value="{{ seller.email }}" type="text"/>
     <label>
         Telefone :
     </label>
-    <input name="phone_number" value="{{ phone }}" type="number"/>
-    <input name="id" value="{{ id }}" type="hidden"/>
+    <input name="phone_number" value="{{ seller.phone }}" type="number"/>
+    <input name="id" value="{{ seller.id }}" type="hidden"/>
     <input required type="submit" value="cadastrar"/>
 </form>
 {% else %}

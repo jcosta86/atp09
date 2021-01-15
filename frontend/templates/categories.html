@@ -3,15 +3,15 @@
 {% if edit %}
     <h1>'Editar Categoria'</h1>
     <form action="/categories/update" method='POST'>
-        <input name="id" value="{{id}}" type="text" hidden /> 
+        <input name="id" value="{{category.id}}" type="text" hidden /> 
         <label>
             Categoria :
         </label>
-        <input name="category" value="{{name}}" type="text"/>
+        <input name="category" value="{{category.name}}" type="text"/>
         <label>
             Descrição :
         </label>
-        <input name="description" value="{{description}}" type="text"/>
+        <input name="description" value="{{category.description}}" type="text"/>
         <input required type="submit" value="salvar"/>
     </form>
 {% else %}

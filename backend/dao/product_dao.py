@@ -16,3 +16,16 @@ class ProductDao(BaseDao):
                 );
                 '''
         self.execute_query(query)
+
+    def read(self) -> list:
+        result = super().read()
+        for product in result:
+            product.price = product.price.strip('$').replace(',', '')
+            product.price = float(product.price)
+        return result
+    
+    def read_by_id(self, id: int) -> Product:
+        product = super().read_by_id(id)
+        product.price = product.price.strip('$').replace(',', '')
+        product.price = float(product.price)
+        return product
