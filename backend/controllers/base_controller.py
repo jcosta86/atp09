@@ -12,7 +12,7 @@ class BaseController:
 
     def write(self, model: BaseModel) -> None:
         self.dao.write(model)
-        self.log.write(Log("Inserted", f"{self.domain_name} - {model.id}"))
+        self.log.write(Log("Inserted", f"{self.domain_name}"))
 
 
     def read(self) -> list:
