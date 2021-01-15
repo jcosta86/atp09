@@ -34,6 +34,9 @@ class BaseDao:
                 connection.commit()
         return result
 
+    def create_table(self) -> None:
+        raise NotImplementedError
+
     def _get_db_columns_names(self) -> str:
         separator = ', '
         model_attributes = vars(self.model)
