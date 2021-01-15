@@ -6,13 +6,12 @@ class MarketplaceDao(BaseDao):
     def __init__(self):
         super().__init__(Marketplace)
 
-
-def create_table_marketplace():
-    query = '''CREATE TABLE IF NOT EXISTS marketplace (
-                id serial NOT NULL,
-                name varchar(45) NOT NULL,
-                description varchar(255) NULL,
-                CONSTRAINT marketplace_pk PRIMARY KEY (id)
-            );
-            '''
-    MarketplaceDao.execute_query(query)
+    def create_table(self) -> None:
+        query = f'''CREATE TABLE IF NOT EXISTS {self.table_name} (
+                    id serial NOT NULL,
+                    name varchar(45) NOT NULL,
+                    description varchar(255) NULL,
+                    CONSTRAINT {self.table_name}_pk PRIMARY KEY (id)
+                );
+                '''
+        self.execute_query(query)
