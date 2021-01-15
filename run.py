@@ -1,19 +1,19 @@
 from dotenv import load_dotenv
 
-from backend.dao.category_dao import create_table_category
-from backend.dao.log_dao import create_table_logfile
-from backend.dao.marketplace_dao import create_table_marketplace
-from backend.dao.product_dao import create_table_product
-from backend.dao.seller_dao import create_table_seller
+from backend.controllers.category_controller import DAO as CATEGORY
+from backend.controllers.log_controller import DAO as LOG
+from backend.controllers.marketplace_controller import DAO as MARKETPLACE
+from backend.controllers.product_controller import DAO as PRODUCT
+from backend.controllers.seller_controller import DAO as SELLER
 from frontend.web import app
 
 
 def create_tables():
-    create_table_logfile()
-    create_table_seller()
-    create_table_marketplace()
-    create_table_category()
-    create_table_product()
+    CATEGORY.create_table()
+    LOG.create_table()
+    SELLER.create_table()
+    MARKETPLACE.create_table()
+    PRODUCT.create_table()
 
 
 if __name__ == "__main__":
