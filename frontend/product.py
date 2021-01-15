@@ -30,10 +30,8 @@ def list_products():
 @product.route('/products/update')
 def edit_product():
     product_id = request.args.get('id')
-    product_name = request.args.get('product')
-    description = request.args.get('description')
-    product_price = request.args.get('price')
-    return render_template('products.html', nome='olist', edit=True, id=product_id, name=product_name, description=description, price=product_price)
+    product = CONTROLLER.read_by_id(product_id)
+    return render_template('products.html', nome='olist', edit=True, product=product)
 
 
 @product.route('/products/update', methods=['POST'])

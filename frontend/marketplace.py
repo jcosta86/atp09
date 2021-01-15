@@ -28,11 +28,9 @@ def list_marketplaces():
 
 @marketplace.route('/marketplaces/update')
 def marketplace_update():
-    id = request.args.get('id')
-    marketplace_name = request.args.get('marketplace')
-    description = request.args.get('descricao')
-    return render_template('marketplaces.html', name='olist', edit=True, id=id, marketplace_name=marketplace_name,
-                           description=description)
+    marketplace_id = request.args.get('id')
+    marketplace= CONTROLLER.read_by_id(marketplace_id)
+    return render_template('marketplaces.html', name='olist', edit=True, marketplace=marketplace)
 
 
 @marketplace.route('/marketplaces/update', methods=['POST'])

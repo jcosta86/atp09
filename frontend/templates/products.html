@@ -3,19 +3,19 @@
 {% if edit %}
     <h1>'Editar Produto'</h1>
     <form action="/products/update" method='POST'>
-        <input name="id" value="{{ id }}" hidden/>
+        <input name="id" value="{{ product.id }}" hidden/>
         <label>
             Produto :
         </label>
-        <input name="product" value="{{ name  }}" type="text"/>
+        <input name="product" value="{{ product.name  }}" type="text"/>
         <label>
             Descrição :
         </label>
-        <input name="description" value="{{ description }}" type="text"/>
+        <input name="description" value="{{ product.description }}" type="text"/>
         <label>
             Preço :
         </label>
-        <input name="price" value="{{ price }}" type="number" step="0.01"/>
+        <input name="price" value="{{ product.price }}" type="number" step="0.01"/>
         <input required type="submit" value="salvar"/>
     </form>
 {% else %}

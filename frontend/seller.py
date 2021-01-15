@@ -28,11 +28,9 @@ def list_sellers():
 
 @seller.route('/sellers/update')
 def seller_update():
-    id = request.args.get('id')
-    full_name = request.args.get('name')
-    email = request.args.get('email')
-    phone = request.args.get('phone_number')
-    return render_template('sellers.html', name='olist', edit=True, id=id, fullname=full_name, email=email, phone=phone)
+    seller_id = request.args.get('id')
+    seller = CONTROLLER.read_by_id(seller_id)
+    return render_template('sellers.html', name='olist', edit=True, seller=seller)
 
 
 @seller.route('/sellers/update', methods=['POST'])

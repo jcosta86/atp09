@@ -6,12 +6,12 @@
     <label>
         Marketplace :
     </label>
-    <input name="marketplace" value="{{ marketplace_name }}" type="text"/>
+    <input name="marketplace" value="{{ marketplace.name }}" type="text"/>
     <label>
         Descrição :
     </label>
-    <input name="descricao" value="{{ description }}" type="text"/>
-    <input type="hidden" value="{{ id }}" name="id">
+    <input name="descricao" value="{{ marketplace.description }}" type="text"/>
+    <input type="hidden" value="{{ marketplace.id }}" name="id">
     <input required type="submit" value="cadastrar"/>
 </form>
 {% else %}

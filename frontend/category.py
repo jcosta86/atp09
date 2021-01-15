@@ -29,9 +29,8 @@ def list_categories():
 @category.route('/categories/update')
 def edit_category():
     category_id = request.args.get('id')
-    category_name = request.args.get('category')
-    description = request.args.get('description')
-    return render_template('categories.html', nome='olist', edit=True, id=category_id, name=category_name, description=description )
+    category = CONTROLLER.read_by_id(category_id)
+    return render_template('categories.html', nome='olist', edit=True, category=category )
 
 
 @category.route('/categories/update', methods=['POST'])
