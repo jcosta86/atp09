@@ -7,7 +7,7 @@ DAO = CategoryDao()
 
 
 def write_category(name: str, description: str) -> None:
-    category = Category(None, name, description)
+    category = Category(name, description)
     DAO.write(category)
     write_log("Inserted", f"Category - {name}")
 
@@ -19,7 +19,7 @@ def read_categories() -> list:
 
 
 def update_category(name: str, description: str, id: int) -> None:
-    category = Category(id, name, description)
+    category = Category(name, description, id)
     DAO.update(category)
     write_log("Updated", f"Category - ID: {id}")
 
