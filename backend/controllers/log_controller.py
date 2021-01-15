@@ -1,12 +1,14 @@
-from backend.dao.log_dao import select_log, insert_log
+from backend.dao.log_dao import LogDao
 from backend.models.log_model import Log
+
+DAO = LogDao()
 
 
 def write_log(activity, domain_activity):
     log = Log(activity, domain_activity)
-    insert_log(log)
+    DAO.write(log)
 
 
 def read_log() -> list:
-    log = select_log()
+    log = DAO.read()
     return log
