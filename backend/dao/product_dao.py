@@ -23,3 +23,9 @@ class ProductDao(BaseDao):
             product.price = product.price.strip('$').replace(',', '')
             product.price = float(product.price)
         return result
+    
+    def read_by_id(self, id: int) -> Product:
+        product = super().read_by_id(id)
+        product.price = product.price.strip('$').replace(',', '')
+        product.price = float(product.price)
+        return product
