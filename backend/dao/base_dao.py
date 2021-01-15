@@ -12,7 +12,7 @@ class BaseDao:
     @staticmethod
     def execute_query(query: str) -> None:
         with Connection() as connection:
-            with connection.cursor(cursor_factory=DictCursor) as cursor:
+            with connection.cursor() as cursor:
                 cursor.execute(query)
                 connection.commit()
 
