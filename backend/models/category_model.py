@@ -1,15 +1,20 @@
 from backend.models.base_model import BaseModel
+from sqlalchemy import Column, String
 
 
 class Category(BaseModel):
     __tablename__ = 'category'
 
-    def __init__(self, name: str, description: str, id: int = None) -> None:
-        super().__init__(id)
-        self.__id = id
-        self.__name = name
-        self.__description = description
+    name = Column(String(length=45))
+    description = Column(String(length=255))
 
+    def __init__(self, name: str, description: str, id: int = None) -> None:
+        self.id = id
+        self.name = name
+        self.description = description
+
+
+'''
     @property
     def name(self) -> str:
         return self.__name
@@ -25,3 +30,4 @@ class Category(BaseModel):
     @description.setter
     def description(self, value: str) -> None:
         self.__description = value
+'''

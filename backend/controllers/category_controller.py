@@ -3,8 +3,7 @@ from backend.controllers.base_controller import BaseController
 
 DAO = CategoryDao()
 
+
 class CategoryController(BaseController):
     def __init__(self):
-        super().__init__( DAO, 'Category')
-
-
+        super().__init__(DAO, 'Category')
