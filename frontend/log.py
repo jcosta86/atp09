@@ -8,5 +8,5 @@ CONTROLLER = LogController()
 
 @log.route('/logfile')
 def list_historico():
-    list_logfile = CONTROLLER.read_log()
+    list_logfile = CONTROLLER.read_all()
     return render_template('logfile.html', lista=list_logfile)
