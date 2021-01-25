@@ -5,5 +5,5 @@ DAO = LogDao()
 
 class LogController:
     def read_log(self) -> list:
-        log = DAO.read()
+        log = DAO.read_all()
         return log

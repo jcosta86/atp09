@@ -1,13 +1,9 @@
-class BaseModel:
-    __tablename__: str = str()
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer
 
-    def __init__(self, id: int = None):
-        self.__id = id
+Base = declarative_base()
 
-    @property
-    def id(self) -> int:
-        return self.__id
+class BaseModel(Base):
+    __abstract__ = True
 
-    @id.setter
-    def id(self, id: int) -> None:
-        self.__id = id
+    id = Column(Integer, primary_key=True)
