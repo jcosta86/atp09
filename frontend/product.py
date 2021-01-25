@@ -38,9 +38,12 @@ def edit_product():
 def save_product_update():
     product_id = request.form.get('id')
     product_name = request.form.get('product')
-    description = request.form.get('description')
+    product_description = request.form.get('description')
     product_price = request.form.get('price')
-    product = Product(product_name, description, product_price, product_id)
+    product = CONTROLLER.read_by_id(product_id)
+    product.name = product_name
+    product.description = product_description
+    product.price = product_price
     CONTROLLER.update(product)
     return redirect('/list_products')
 
@@ -48,6 +51,6 @@ def save_product_update():
 @product.route('/products/delete')
 def del_product():
     product_id = request.args.get('id')
-    CONTROLLER.delete(product_id)
+    product = CONTROLLER.read_by_id(product_id)
+    CONTROLLER.delete(product)
     return redirect('/list_products')
-
