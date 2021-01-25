@@ -35,16 +35,20 @@ def marketplace_update():
 
 @marketplace.route('/marketplaces/update', methods=['POST'])
 def save_marketplace_update():
-    id = request.form.get('id')
-    name = request.form.get('marketplace')
-    description = request.form.get('descricao')
-    marketplace = Marketplace(name, description, id)
+    marketplace_id = request.form.get('id')
+    marketplace_name = request.form.get('marketplace')
+    marketplace_description = request.form.get('descricao')    
+    marketplace = CONTROLLER.read_by_id(marketplace_id)
+    marketplace.name = marketplace_name
+    marketplace.description = marketplace_description
     CONTROLLER.update(marketplace)
     return redirect('/list_marketplaces')
 
 
 @marketplace.route('/marketplaces/delete')
 def marketplace_delete():
-    id = request.args.get('id')
-    CONTROLLER.delete(id)
+    marketplace_id = request.args.get('id')
+    marketplace = CONTROLLER.read_by_id(marketplace_id)
+    CONTROLLER.delete(marketplace)
     return redirect('/list_marketplaces')
+
