@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 
 from backend.controllers.category_controller import DAO as CATEGORY
 from backend.controllers.log_controller import DAO as LOG
-from backend.controllers.marketplace_controller import DAO as MARKETPLACE
+from backend.controllers.marketplace_controller import MarketplaceController
 from backend.controllers.product_controller import DAO as PRODUCT
 from backend.controllers.seller_controller import DAO as SELLER
 from frontend.web import app
