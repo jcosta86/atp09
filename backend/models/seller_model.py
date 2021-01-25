@@ -15,4 +15,3 @@ class Seller(BaseModel):
         self.email = email
         self.phone = phone
         self.id = id
-
