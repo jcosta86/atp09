@@ -12,13 +12,13 @@ class Log(BaseModel):
 
     def __init__(self, activity: str, domain_activity: str, id: int = None, date_activity: str = None,
                  time_activity: str = None):
-        super().__init__(id)
-        self.__activity = activity
-        self.__domain_activity = domain_activity
-        self.__date_activity = date_activity
-        self.__time_activity = time_activity
+        self.id = id
+        self.activity = activity
+        self.domain_activity = domain_activity
+        self.date_activity = date_activity
+        self.time_activity = time_activity
 
         if date_activity is None:
-            self.__date_activity = datetime.now().date()
+            self.date_activity = datetime.now().date()
         if time_activity is None:
-            self.__time_activity = datetime.now().time()
+            self.time_activity = datetime.now().time()
