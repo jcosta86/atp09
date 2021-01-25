@@ -30,15 +30,15 @@ def list_categories():
 def edit_category():
     category_id = request.args.get('id')
     category = CONTROLLER.read_by_id(category_id)
-    return render_template('categories.html', nome='olist', edit=True, category=category )
+    return render_template('categories.html', nome='olist', edit=True, category=category)
 
 
 @category.route('/categories/update', methods=['POST'])
 def save_category_update():
     category_id = request.form.get('id')
-    category_name = request.form.get('category')
-    description = request.form.get('description')
-    category = Category(category_name, description, category_id)
+    category = CONTROLLER.read_by_id(category_id)
+    category.name = request.form.get('category')
+    category.description = request.form.get('description')
     CONTROLLER.update(category)
     return redirect('/list_categories')
 
@@ -46,5 +46,6 @@ def save_category_update():
 @category.route('/categories/delete')
 def del_category():
     category_id = request.args.get('id')
-    CONTROLLER.delete(category_id)
+    category = CONTROLLER.read_by_id(category_id)
+    CONTROLLER.delete(category)
     return redirect('/list_categories')
