@@ -15,3 +15,7 @@ class TestLogModel:
         assert self.log.activity == self.activity
         assert self.log.domain_activity == self.domain_activity
         assert self.log.__tablename__ == 'logfile'
+
+def start_test_log() -> None:
+    test_log = TestLogModel()
+    test_log.test_log_model()
