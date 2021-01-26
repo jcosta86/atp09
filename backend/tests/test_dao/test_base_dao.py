@@ -68,7 +68,6 @@ def start_test_base_dao() -> None:
     test_base_dao.test_read_all()
     test_base_dao.test_read_by_id()
     test_base_dao.test_delete()
-    test_base_dao.test_delete_using_an_string()
 
 
 start_test_base_dao()
