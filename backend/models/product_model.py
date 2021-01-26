@@ -6,9 +6,9 @@ from sqlalchemy.dialects.postgresql import MONEY
 class Product(BaseModel):
     __tablename__ = 'product'
 
-    name = Column(String(length=45))
-    description = Column(String(length=255))
-    price = Column(MONEY())
+    name = Column(String(length=45), nullable = False)
+    description = Column(String(length=255), nullable = False)
+    price = Column(MONEY(), nullable = False)
 
     def __init__(self, name: str, description: str, price: float, id: int = None) -> None:
         self.name = name

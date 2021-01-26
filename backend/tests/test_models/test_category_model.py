@@ -3,7 +3,7 @@ from backend.models.base_model import BaseModel
 
 
 class TestCategoryModel:
-    category_name = 'name category'
+    category_name = 'alguma coisa'
     category_description = 'description category'
     category_id = 25
 
@@ -14,6 +14,13 @@ class TestCategoryModel:
         assert category.name is self.category_name
         assert category.description is self.category_description
         assert category.id is self.category_id
+    
+    def test_validator_blank_name(self) -> None:
+        category = Category(self.category_name, self.category_description)
+        try:
+            category.name = '' 
+        except Exception as error:
+            assert isinstance(error, ValueError)
 
 
 def start_test_category_model():

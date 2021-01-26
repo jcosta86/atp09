@@ -15,7 +15,7 @@ class TestBaseController:
     id = None
     
     def test_save(self) -> None:
-        mkt = Marketplace(self.name, self.description)
+        mkt = Marketplace(self.name_blank, self.description)
         self.base_controller.write(mkt)
         with Session() as session:
             object_test = session.query(Marketplace).filter_by(name=self.name).first()
@@ -44,7 +44,6 @@ class TestBaseController:
         self.base_controller.delete(marketplace)
         marketplace_after_delete = self.base_controller.read_by_id(self.id)
         assert marketplace_after_delete is None
-        
         
 def start_base_controller_tests() -> None:
     test_controller = TestBaseController()

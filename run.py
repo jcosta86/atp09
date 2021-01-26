@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-
 from backend.controllers.category_controller import DAO as CATEGORY
 from backend.controllers.log_controller import DAO as LOG
 from backend.controllers.marketplace_controller import DAO as MARKETPLACE
@@ -35,7 +34,6 @@ def run_tests():
     start_test_seller_model()
 
 if __name__ == "__main__":
-    load_dotenv()
     run_tests()
     app.run(debug=True)
     create_tables()

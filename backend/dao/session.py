@@ -1,9 +1,11 @@
 import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 class Session:
     def __init__(self) -> None:
+        load_dotenv()
         connector = os.getenv('DB_CONNECTOR')
         host = os.getenv('DB_HOST')
         user = os.getenv('DB_USER')
