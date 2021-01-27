@@ -11,10 +11,10 @@ CONTROLLER = MarketplaceController()
 def register_marketplace():
     marketplace_name = request.args.get('marketplace')
     description = request.args.get('descricao')
-    marketplace = Marketplace(marketplace_name, description)
     if (marketplace_name is None) and (description is None):
         pass
     else:
+        marketplace = Marketplace(marketplace_name, description)
         CONTROLLER.write(marketplace)
         return redirect('/list_marketplaces')
     return render_template('marketplaces.html', name='olist')

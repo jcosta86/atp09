@@ -25,6 +25,7 @@ class TestMarketplaceModel:
 def start_test_marketplace_model():
     test_marketplace_model = TestMarketplaceModel()
     test_marketplace_model.test_atributes()
+    test_marketplace_model.test_validator_blank_name()
 
 
 start_test_marketplace_model()

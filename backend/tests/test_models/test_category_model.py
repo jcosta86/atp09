@@ -26,6 +26,7 @@ class TestCategoryModel:
 def start_test_category_model():
     test_category_model = TestCategoryModel()
     test_category_model.test_constructor()
+    test_category_model.test_validator_blank_name()
 
 
 start_test_category_model()

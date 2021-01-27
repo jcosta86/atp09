@@ -11,10 +11,10 @@ def register_seller():
     full_name = request.args.get('name')
     email = request.args.get('email')
     phone = request.args.get('phone_number')
-    seller = Seller(full_name, email, phone)
     if (full_name is None) and (email is None) and (phone is None):
         pass
     else:
+        seller = Seller(full_name, email, phone)
         CONTROLLER.write(seller)
         return redirect('/list_sellers')
     return render_template('sellers.html', name='olist')

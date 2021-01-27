@@ -8,9 +8,6 @@ class ProductDao(BaseDao):
 
     def read_all(self) -> list:
         result = super().read_all()
-        for product in result:
-            product.price = product.price.strip('$').replace(',', '')
-            product.price = float(product.price)
         return result
     
     def read_by_id(self, id: int) -> Product:

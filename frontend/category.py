@@ -11,10 +11,10 @@ CONTROLLER = CategoryController()
 def register_category():
     category_name = request.args.get('category')
     description = request.args.get('description')
-    category = Category(category_name, description)
     if (category_name is None) and (description is None):
         pass
     else:
+        category = Category(category_name, description)
         CONTROLLER.write(category)
         return redirect('/list_categories')
     return render_template('categories.html', name='olist', edit=False)

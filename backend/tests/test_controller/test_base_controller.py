@@ -10,18 +10,17 @@ from backend.dao.session import Session
 class TestBaseController:
     marketplace_dao = MarketplaceDao()
     base_controller = BaseController(marketplace_dao, 'marketplace')
-    name = '!@##$#!#@!'
+    name = 'testandooo'
     description = 'Test Marketplace Controller'
     id = None
     
     def test_save(self) -> None:
-        mkt = Marketplace(self.name_blank, self.description)
+        mkt = Marketplace(self.name, self.description)
         self.base_controller.write(mkt)
-        with Session() as session:
-            object_test = session.query(Marketplace).filter_by(name=self.name).first()
-        assert self.name == object_test.name
-        self.id = object_test.id
-    
+        r = self.base_controller.read()[-1]
+        assert self.name == r.name
+        self.id = r.id
+
     def test_read_all(self) -> None:
         marketplaces = self.base_controller.read()
         assert isinstance(marketplaces, list)
