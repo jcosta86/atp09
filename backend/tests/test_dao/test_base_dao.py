@@ -19,14 +19,11 @@ class TestBaseDao:
     def test_save(self) -> None:
         seller = Seller(self.name, self.email, self.phone)
         self.DAO.save(seller)
-        with Session() as session:
-            model = session.query(Seller).filter_by(fullname=self.name).first()
-        model_name = model.fullname
-        model_phone = model.phone
-        model_email = model.email
-        assert model_name == self.name
-        assert model_phone == self.phone
-        assert model_email == self.email
+        r = self.DAO.read_all()[-1]
+        assert self.name == r.fullname
+        assert self.phone == r.phone
+        assert self.email == r.email
+        self.id = r.id
         self.DAO.delete(seller)
 
     def test_read_all(self) -> None:
@@ -36,10 +33,8 @@ class TestBaseDao:
     def test_read_by_id(self) -> None:
         seller = Seller(self.name, self.email, self.phone)
         self.DAO.save(seller)
-        with Session() as session:
-            model = session.query(Seller).filter_by(fullname=self.name).first()
-        id_ = model.id
-        seller_from_database = self.DAO.read_by_id(id_)
+        r = self.DAO.read_all()[-1]
+        seller_from_database = self.DAO.read_by_id(r.id)
         model_name = seller_from_database.fullname
         model_phone = seller_from_database.phone
         model_email = seller_from_database.email
@@ -51,12 +46,10 @@ class TestBaseDao:
     def test_delete(self) -> None:
         seller = Seller(self.name, self.email, self.phone)
         self.DAO.save(seller)
-        with Session() as session:
-            model = session.query(Seller).filter_by(fullname=self.name).first()
-        id_ = model.id
-        seller_from_database = self.DAO.read_by_id(id_)
+        r = self.DAO.read_all()[-1]
+        seller_from_database = self.DAO.read_by_id(r.id)
         self.DAO.delete(seller_from_database)
-        seller_after_delete = self.DAO.read_by_id(id_)
+        seller_after_delete = self.DAO.read_by_id(r.id)
         assert seller_after_delete is None
 
 

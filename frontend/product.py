@@ -12,10 +12,10 @@ def register_product():
     product_name = request.args.get('product')
     description = request.args.get('description')
     price = request.args.get('price')
-    product = Product(product_name, description, price)
     if (product_name is None) and (description is None) and (price is None):
         pass
     else:
+        product = Product(product_name, description, price)
         CONTROLLER.write(product)
         return redirect('/list_products')
     return render_template('products.html', name='olist')
